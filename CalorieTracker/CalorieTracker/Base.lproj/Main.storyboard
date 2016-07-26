@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Sga-41-hjQ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Calorie History View Controller-->
+        <scene sceneID="sgb-BV-ecU">
+            <objects>
+                <viewController id="guj-K7-ExU" customClass="CalorieHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lSz-qX-7hP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ptw-kF-4gf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l0h-Yz-mqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="WUI-Y7-weL"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgI-yH-ZVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72" y="-1100"/>
+        </scene>
+        <!--User Info-->
+        <scene sceneID="urz-i8-wvi">
+            <objects>
+                <viewController id="PIj-GQ-Rao" customClass="UserInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="blv-hD-yr3"/>
+                        <viewControllerLayoutGuide type="bottom" id="uY7-C5-NHn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eAQ-G4-sFA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrx-sw-RRV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="User Info" id="DXh-jo-UQu"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84922424370000005" green="1" blue="0.91769772250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rrx-sw-RRV" firstAttribute="leading" secondItem="eAQ-G4-sFA" secondAttribute="leading" id="3uV-Ub-94c"/>
+                            <constraint firstItem="Rrx-sw-RRV" firstAttribute="top" secondItem="eAQ-G4-sFA" secondAttribute="top" symbolic="YES" id="aHn-oY-rYn"/>
+                            <constraint firstAttribute="trailing" secondItem="Rrx-sw-RRV" secondAttribute="trailing" symbolic="YES" id="c4G-nC-ATJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User Info" id="MK6-uO-kSN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5X-Wa-PgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="-647"/>
+        </scene>
+        <!--Food Calorie-->
+        <scene sceneID="z88-b8-6Lj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEC-ps-DXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="eUZ-41-Dp9" customClass="SearchCalorieViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="92f-1j-7h9"/>
+                        <viewControllerLayoutGuide type="bottom" id="7JD-FP-mPY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TN0-be-RPO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jg1-Zk-M2P">
+                                <rect key="frame" x="20" y="511" width="280" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="r8Y-po-agF">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90040772020000004" green="0.99915768709999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jg1-Zk-M2P" firstAttribute="top" secondItem="7JD-FP-mPY" secondAttribute="bottom" constant="-8" id="8zV-vX-8kh"/>
+                            <constraint firstItem="7JD-FP-mPY" firstAttribute="top" secondItem="Jg1-Zk-M2P" secondAttribute="bottom" constant="8" symbolic="YES" id="90N-X7-606"/>
+                            <constraint firstAttribute="trailing" secondItem="Jg1-Zk-M2P" secondAttribute="trailing" constant="20" symbolic="YES" id="AkJ-p5-TyY"/>
+                            <constraint firstItem="Jg1-Zk-M2P" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" constant="20" symbolic="YES" id="I4f-8b-Pdl"/>
+                            <constraint firstAttribute="trailing" secondItem="r8Y-po-agF" secondAttribute="trailing" symbolic="YES" id="L9w-7d-YRd"/>
+                            <constraint firstItem="r8Y-po-agF" firstAttribute="top" secondItem="92f-1j-7h9" secondAttribute="bottom" symbolic="YES" id="ZPR-A3-Oa6"/>
+                            <constraint firstItem="r8Y-po-agF" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" symbolic="YES" id="m4k-xH-REq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Gas-Bl-zAz"/>
+                    <navigationItem key="navigationItem" title="Food Calorie" id="Dze-h3-951"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="231" y="-1753"/>
+        </scene>
+        <!--Carlorie Tracker -->
+        <scene sceneID="RcN-5j-obB">
+            <objects>
+                <viewController id="sHJ-x3-l0d" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hlu-Wc-KDZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="90o-fx-Znc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Trg-Yf-lz5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.88854951760000001" blue="0.94080056030000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Carlorie Tracker " id="qhX-x7-1ff">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="eg9-sx-VJ8">
+                            <connections>
+                                <segue destination="eUZ-41-Dp9" kind="push" id="II9-ta-Doc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q30-7W-J6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-174" y="-1753"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MzQ-LS-VP9">
+            <objects>
+                <tabBarController id="Sga-41-hjQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="btR-0L-zNw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="W0L-eq-MTQ" kind="relationship" relationship="viewControllers" id="7yQ-in-HqE"/>
+                        <segue destination="guj-K7-ExU" kind="relationship" relationship="viewControllers" id="sJ7-wB-PoD"/>
+                        <segue destination="PIj-GQ-Rao" kind="relationship" relationship="viewControllers" id="Vtg-H4-pjb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJg-LM-Nlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1326" y="-1181"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="YKe-eg-xf9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W0L-eq-MTQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="cAh-KF-8z5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="evI-F5-aCx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sHJ-x3-l0d" kind="relationship" relationship="rootViewController" id="wxg-2b-qLf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krn-oN-P0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="-1760"/>
+        </scene>
+    </scenes>
+</document>
