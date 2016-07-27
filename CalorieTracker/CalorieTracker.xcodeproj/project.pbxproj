@@ -19,6 +19,8 @@
 		07026CE51D493C6A00562C3B /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026CE41D493C6A00562C3B /* Food.m */; };
 		07026D0B1D49531400562C3B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07026D0A1D49531400562C3B /* HealthKit.framework */; };
 		814EEBBF4B36CD309A328BEB /* libPods-CalorieTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */; };
+		96C3A92B1D4820090064BEDC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92A1D4820090064BEDC /* User.m */; };
+		96C3A92E1D4864550064BEDC /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92D1D4864550064BEDC /* Day.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +40,17 @@
 		07026CC61D48095800562C3B /* SearchCalorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCalorieViewController.m; sourceTree = "<group>"; };
 		07026CC81D4809E600562C3B /* CalorieHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalorieHistoryViewController.h; sourceTree = "<group>"; };
 		07026CC91D4809E600562C3B /* CalorieHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalorieHistoryViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		07026CE31D493C6A00562C3B /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
 		07026CE41D493C6A00562C3B /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		07026D091D49531400562C3B /* CalorieTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalorieTracker.entitlements; sourceTree = "<group>"; };
 		07026D0A1D49531400562C3B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+=======
+		96C3A9291D4820090064BEDC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		96C3A92A1D4820090064BEDC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		96C3A92C1D4864550064BEDC /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		96C3A92D1D4864550064BEDC /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
+>>>>>>> master
 		96E993F8130232525FED9073 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		ABD2E3065465FBA689137092 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CalorieTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,10 +113,17 @@
 			children = (
 				07026CB11D47F53900562C3B /* HomeViewController.h */,
 				07026CB21D47F53A00562C3B /* HomeViewController.m */,
+<<<<<<< HEAD
 				07026CC81D4809E600562C3B /* CalorieHistoryViewController.h */,
 				07026CC91D4809E600562C3B /* CalorieHistoryViewController.m */,
 				07026CC51D48095800562C3B /* SearchCalorieViewController.h */,
 				07026CC61D48095800562C3B /* SearchCalorieViewController.m */,
+=======
+				07026CC51D48095800562C3B /* SearchCalorieViewController.h */,
+				07026CC61D48095800562C3B /* SearchCalorieViewController.m */,
+				07026CC81D4809E600562C3B /* CalorieHistoryViewController.h */,
+				07026CC91D4809E600562C3B /* CalorieHistoryViewController.m */,
+>>>>>>> master
 				07026CC21D4808DA00562C3B /* UserInfoViewController.h */,
 				07026CC31D4808DA00562C3B /* UserInfoViewController.m */,
 			);
@@ -117,6 +133,10 @@
 		07026CCC1D480A5B00562C3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96C3A9291D4820090064BEDC /* User.h */,
+				96C3A92A1D4820090064BEDC /* User.m */,
+				96C3A92C1D4864550064BEDC /* Day.h */,
+				96C3A92D1D4864550064BEDC /* Day.m */,
 				07026CAE1D47F53900562C3B /* AppDelegate.h */,
 				07026CE31D493C6A00562C3B /* Food.h */,
 				07026CE41D493C6A00562C3B /* Food.m */,
@@ -289,11 +309,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				07026CC71D48095800562C3B /* SearchCalorieViewController.m in Sources */,
+<<<<<<< HEAD
 				07026CE51D493C6A00562C3B /* Food.m in Sources */,
+=======
+				96C3A92B1D4820090064BEDC /* User.m in Sources */,
+>>>>>>> master
 				07026CB31D47F53A00562C3B /* HomeViewController.m in Sources */,
 				07026CC41D4808DA00562C3B /* UserInfoViewController.m in Sources */,
 				07026CCA1D4809E600562C3B /* CalorieHistoryViewController.m in Sources */,
 				07026CB01D47F53900562C3B /* AppDelegate.m in Sources */,
+				96C3A92E1D4864550064BEDC /* Day.m in Sources */,
 				07026CAD1D47F53900562C3B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
