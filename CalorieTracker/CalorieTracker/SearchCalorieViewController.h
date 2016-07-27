@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Food.h"
+@interface SearchCalorieViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 
-@interface SearchCalorieViewController : UIViewController
 
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Calorie History View Controller-->
@@ -61,7 +62,6 @@
         <!--Food Calorie-->
         <scene sceneID="z88-b8-6Lj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OEC-ps-DXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="eUZ-41-Dp9" customClass="SearchCalorieViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="92f-1j-7h9"/>
@@ -71,31 +71,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jg1-Zk-M2P">
-                                <rect key="frame" x="20" y="511" width="280" height="0.0"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="r8Y-po-agF">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wj2-sh-sT1">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="3i7-4c-cHF">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3i7-4c-cHF" id="Tb1-Kt-AL1">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90040772020000004" green="0.99915768709999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Jg1-Zk-M2P" firstAttribute="top" secondItem="7JD-FP-mPY" secondAttribute="bottom" constant="-8" id="8zV-vX-8kh"/>
-                            <constraint firstItem="7JD-FP-mPY" firstAttribute="top" secondItem="Jg1-Zk-M2P" secondAttribute="bottom" constant="8" symbolic="YES" id="90N-X7-606"/>
-                            <constraint firstAttribute="trailing" secondItem="Jg1-Zk-M2P" secondAttribute="trailing" constant="20" symbolic="YES" id="AkJ-p5-TyY"/>
-                            <constraint firstItem="Jg1-Zk-M2P" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" constant="20" symbolic="YES" id="I4f-8b-Pdl"/>
+                            <constraint firstItem="Wj2-sh-sT1" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="2o5-VX-Imp"/>
+                            <constraint firstAttribute="trailing" secondItem="Wj2-sh-sT1" secondAttribute="trailing" id="3BN-fW-pHG"/>
+                            <constraint firstItem="Wj2-sh-sT1" firstAttribute="top" secondItem="r8Y-po-agF" secondAttribute="bottom" id="A78-dW-qkf"/>
                             <constraint firstAttribute="trailing" secondItem="r8Y-po-agF" secondAttribute="trailing" symbolic="YES" id="L9w-7d-YRd"/>
                             <constraint firstItem="r8Y-po-agF" firstAttribute="top" secondItem="92f-1j-7h9" secondAttribute="bottom" symbolic="YES" id="ZPR-A3-Oa6"/>
+                            <constraint firstItem="7JD-FP-mPY" firstAttribute="top" secondItem="Wj2-sh-sT1" secondAttribute="bottom" id="fIk-gq-rFQ"/>
                             <constraint firstItem="r8Y-po-agF" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" symbolic="YES" id="m4k-xH-REq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="Gas-Bl-zAz"/>
                     <navigationItem key="navigationItem" title="Food Calorie" id="Dze-h3-951"/>
+                    <connections>
+                        <outlet property="searchBar" destination="r8Y-po-agF" id="NO9-2x-mo6"/>
+                        <outlet property="tableView" destination="Wj2-sh-sT1" id="YG2-dT-58V"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEC-ps-DXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="-1753"/>
+            <point key="canvasLocation" x="333" y="-1753"/>
         </scene>
         <!--Carlorie Tracker -->
         <scene sceneID="RcN-5j-obB">
@@ -108,12 +123,114 @@
                     <view key="view" contentMode="scaleToFill" id="Trg-Yf-lz5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.88854951760000001" blue="0.94080056030000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Daily Target Calorie is " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxt-PL-yC1">
+                                <rect key="frame" x="25" y="87" width="275" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BreakFast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-kA-RHH">
+                                <rect key="frame" x="20" y="142" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65T-W9-biD">
+                                <rect key="frame" x="20" y="202" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Snacks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11S-fw-76R">
+                                <rect key="frame" x="20" y="256" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrA-HH-yY4">
+                                <rect key="frame" x="20" y="317" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories Consumed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yX5-wR-19b">
+                                <rect key="frame" x="85" y="375" width="150" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Bo-fh-qon">
+                                <rect key="frame" x="114" y="142" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-Dj-a3M">
+                                <rect key="frame" x="114" y="193" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-gk-avm">
+                                <rect key="frame" x="114" y="253" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5l-bO-y2K">
+                                <rect key="frame" x="114" y="317" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-Se-DOn">
+                                <rect key="frame" x="112" y="400" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQS-bh-8sM">
+                                <rect key="frame" x="141" y="459" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-nC-mQO">
+                                <rect key="frame" x="210" y="187" width="46" height="43"/>
+                                <state key="normal" backgroundImage="searchClr"/>
+                                <connections>
+                                    <segue destination="eUZ-41-Dp9" kind="push" identifier="lunchSegue" id="Jyb-Oy-11t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li6-VL-cdp">
+                                <rect key="frame" x="210" y="247" width="46" height="42"/>
+                                <state key="normal" backgroundImage="searchClr"/>
+                                <connections>
+                                    <segue destination="eUZ-41-Dp9" kind="push" identifier="snackSegue" id="vKc-Os-1vW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxd-5E-hLR">
+                                <rect key="frame" x="210" y="136" width="46" height="43"/>
+                                <state key="normal" backgroundImage="searchClr"/>
+                                <connections>
+                                    <segue destination="eUZ-41-Dp9" kind="push" identifier="bfSegue" id="3OY-Ca-DDq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5f-hZ-SkJ">
+                                <rect key="frame" x="210" y="312" width="46" height="39"/>
+                                <state key="normal" backgroundImage="searchClr"/>
+                                <connections>
+                                    <segue destination="eUZ-41-Dp9" kind="push" identifier="dinnerSegue" id="YYZ-ab-W6l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90040772020000004" green="0.99915768709999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="vxt-PL-yC1" secondAttribute="trailing" constant="4" id="Kxa-2Z-Qp0"/>
+                            <constraint firstItem="vxt-PL-yC1" firstAttribute="leading" secondItem="Trg-Yf-lz5" secondAttribute="leadingMargin" constant="9" id="Zwl-Fe-vly"/>
+                            <constraint firstItem="vxt-PL-yC1" firstAttribute="top" secondItem="Hlu-Wc-KDZ" secondAttribute="bottom" constant="23" id="lT3-l1-Xti"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Carlorie Tracker " id="qhX-x7-1ff">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="eg9-sx-VJ8">
                             <connections>
-                                <segue destination="eUZ-41-Dp9" kind="push" id="II9-ta-Doc"/>
+                                <segue destination="eUZ-41-Dp9" kind="push" identifier="segue" id="FDf-uQ-8mC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -161,4 +278,10 @@
             <point key="canvasLocation" x="-567" y="-1760"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="searchClr" width="220" height="220"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jyb-Oy-11t"/>
+    </inferredMetricsTieBreakers>
 </document>
