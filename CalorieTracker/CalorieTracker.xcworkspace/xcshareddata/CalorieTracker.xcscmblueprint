@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E0FEE419E4457FBB80D928CC5B9ABD34A212E103",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B8CA173434AB3D2C471DD22902A9D764CF89EB44" : 0,
+    "E0FEE419E4457FBB80D928CC5B9ABD34A212E103" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6575AC77-21E6-4BA5-9E36-0060738EBB7D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B8CA173434AB3D2C471DD22902A9D764CF89EB44" : "CalorieTracker\/CalorieTracker\/CalorieTracker\/July.MyCalendar\/",
+    "E0FEE419E4457FBB80D928CC5B9ABD34A212E103" : "CalorieTracker\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CalorieTracker",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CalorieTracker\/CalorieTracker.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/NiNajamie\/July.MyCalendar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B8CA173434AB3D2C471DD22902A9D764CF89EB44"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ren-y\/CalorieTracker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E0FEE419E4457FBB80D928CC5B9ABD34A212E103"
+    }
+  ]
+}

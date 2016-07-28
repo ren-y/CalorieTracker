@@ -7,6 +7,8 @@
 //
 
 #import "UserInfoViewController.h"
+#import "HomeViewController.h"
+//#import "CalorieHistoryViewController.h"
 
 @interface UserInfoViewController () {
     NSArray *pickerExerciseLevel;
@@ -97,6 +99,8 @@
     if ([user.gender isEqual:@"m"]) {
         
         double BMR = (preBMR + 5) * multiplier;
+        user.targetCals = [NSString stringWithFormat:@"%.2f", BMR];
+
         self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
         NSLog(@"BMR---%.2f", BMR);
         
@@ -104,12 +108,15 @@
     } else if ([user.gender isEqual:@"f"]) {
         
         double BMR = (preBMR - 161) * multiplier;
+        user.targetCals = [NSString stringWithFormat:@"%.2f", BMR];
+        
         self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
         NSLog(@"BMR---%.2f", BMR);
 
     } else {
         NSLog(@"Nothing Happen");
     }
+    
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addObject:user];
@@ -120,7 +127,6 @@
 }
 
 #pragma mark - TextField Delegates
-
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
 }
 
@@ -133,15 +139,17 @@
 }
 
 
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    
+//    HomeViewController *homeVC = segue.destinationViewController;
+//    self.userArray = [User allObjects];
+    
+//    User *user = self.userArray;
+//    homeVC.user = user;
+    
 }
-*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
