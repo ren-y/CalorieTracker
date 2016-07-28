@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
+#import "User.h"
+#import "Food.h"
+#import "SearchCalorieViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController<myDelegate>
 
-
+-(void)passItem:(Food *)food;
+-(void)setCalorieLabel:(User*)user;
 @end
 

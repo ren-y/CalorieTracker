@@ -12,9 +12,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property bool isFilered;
-@property NSMutableArray *fileteredArray;
-//@property NSMutableArray *totalArray;
-//@property NSMutableArray *foodArray;
+@property NSMutableArray *filteredArray;
+@property (strong,nonatomic)Food *food;
+
 @property (strong,nonatomic)NSMutableArray *totalItems; //final array for search
 @end
 
@@ -26,12 +26,10 @@
     self.searchBar.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    
     self.totalItems=[[NSMutableArray alloc]init];
     //self.foodArray=[[NSMutableArray alloc]init];
-    
-    //URL string
-    NSString *urlString =@"http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=KEpxbaVzTsisfAvEzBj0ijXhsbvisnTP61rCwXYx&nutrients=208";
+ 
+    NSString *urlString =@"http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=bkO3pFhNPS6QBIvfZkkRj4XUH1ILOQe8o5RukW0v&nutrients=205&nutrients=204&nutrients=208&nutrients=269";
     
     //Get a session Connection
     NSURLSession *session = [NSURLSession sharedSession];
@@ -43,6 +41,7 @@
             NSError *jsonError = nil;
             
             NSDictionary *totalJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            
             NSDictionary *report=totalJSON[@"report"]; //persist
             NSArray *foods=report[@"foods"];
             
@@ -56,24 +55,16 @@
                 
                 NSArray *nutrientsArray = food[@"nutrients"];
                 
-                NSMutableDictionary *innerDict = nutrientsArray.firstObject;
+                NSMutableDictionary *innerDict = nutrientsArray.lastObject;
                 newFood.unit = innerDict[@"unit"];
                 newFood.calorie = innerDict[@"value"];
                 
                 [self.totalItems addObject:newFood];
             }
-            
-            NSLog(@"Food Object::%lu",self.totalItems.count);
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
-            
-            //            for (Food *food in self.totalItems) {
-            //                NSLog(@"name::%@ unit:: %@ cal::%@",food.name,food.unit,food.calorie);
-            //
-            //            }
-        }
+    }
         
     }];
     
@@ -94,13 +85,13 @@
     {
         self.isFilered=YES;
         //lazy loading only alloc init when needed
-        self.fileteredArray=[[NSMutableArray alloc]init];
+        self.filteredArray=[[NSMutableArray alloc]init];
         for (Food *food in self.totalItems) {
             NSRange strRange=[food.name rangeOfString:searchText options:NSCaseInsensitiveSearch]; //range is enum location length
             
             if(strRange.location == 0)
             {
-                [self.fileteredArray addObject:food];
+                [self.filteredArray addObject:food];
                 
             }
         }
@@ -124,7 +115,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(_isFilered)
     {
-        return self.fileteredArray.count;
+        return self.filteredArray.count;
     }
     else
     {
@@ -147,22 +138,28 @@
     }
     else
     {
-        Food * food = [self.fileteredArray objectAtIndex:indexPath.row];
+        Food * food = [self.filteredArray objectAtIndex:indexPath.row];
         cell.textLabel.text = food.name;
     }
     
     return cell;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    if(_filteredArray != nil){
+    Food *food=self.filteredArray[indexPath.row];
+        [self.delegate passItem:food];
+    NSLog(@"calorie::%@  unit::%@ path::%ld",food.name,food.unit,indexPath.row);
+    }
+    else{
+    Food *food=self.totalItems[indexPath.row];
+         [self.delegate passItem:food];
+    NSLog(@"calorie::%@  unit::%@ path::%ld",food.calorie,food.unit,indexPath.row);
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-*/
+
 
 @end

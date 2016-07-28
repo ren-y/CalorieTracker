@@ -7,13 +7,15 @@
 //
 
 #import "UserInfoViewController.h"
+#import "HomeViewController.h"
+#import "User.h"
 
 @interface UserInfoViewController () {
     NSArray *pickerExerciseLevel;
 }
 
 @property RLMResults<User *> *userArray;
-
+@property (strong,nonatomic) User* user;
 @end
 
 @implementation UserInfoViewController
@@ -92,20 +94,22 @@
     }
     NSLog(@"multiplier--%.3f", multiplier);
     
-    double preBMR = (10 * weight) + 6.25 * height - (5 * age);
+    int preBMR = (10 * weight) + 6.25 * height - (5 * age);
     
-    if ([user.gender isEqual:@"m"]) {
+    if ([user.gender isEqual:@"m"]||[user.gender isEqual:@"M"]) {
         
-        double BMR = (preBMR + 5) * multiplier;
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
-        NSLog(@"BMR---%.2f", BMR);
+        int BMR = (preBMR + 5) * multiplier;
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        user.calorie=BMR;
+        NSLog(@"BMR---%d", BMR);
         
     // if women
-    } else if ([user.gender isEqual:@"f"]) {
+    } else if ([user.gender isEqual:@"f"]||[user.gender isEqual:@"F"]) {
         
-        double BMR = (preBMR - 161) * multiplier;
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
-        NSLog(@"BMR---%.2f", BMR);
+        int BMR = (preBMR - 161) * multiplier;
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        user.calorie=BMR;
+        NSLog(@"BMR---%d", BMR);
 
     } else {
         NSLog(@"Nothing Happen");
@@ -113,6 +117,9 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addObject:user];
+        self.user=[[User alloc]init];
+       self.user=user;
+        
     }];
     
     self.userArray = [User allObjects];
@@ -133,15 +140,17 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
+        HomeViewController *homeViewController=(HomeViewController*)segue.destinationViewController;
+        
+        [homeViewController setCalorieLabel:self.user];
+    }
 }
-*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
