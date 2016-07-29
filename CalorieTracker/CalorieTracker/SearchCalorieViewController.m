@@ -14,6 +14,7 @@
 @property bool isFilered;
 @property NSMutableArray *filteredArray;
 @property (strong,nonatomic)Food *food;
+@property NSInteger selectedRow;
 
 @property (strong,nonatomic)NSMutableArray *totalItems; //final array for search
 @end
@@ -28,7 +29,7 @@
     self.tableView.delegate=self;
     self.totalItems=[[NSMutableArray alloc]init];
     //self.foodArray=[[NSMutableArray alloc]init];
-    NSString *urlString =@"http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=bkO3pFhNPS6QBIvfZkkRj4XUH1ILOQe8o5RukW0v&nutrients=205&nutrients=204&nutrients=208&nutrients=269";
+    NSString *urlString =@"http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=bkO3pFhNPS6QBIvfZkkRj4XUH1ILOQe8o5RukW0v&nutrients=205&nutrients=204&nutrients=208&nutrients=269&max=500";
     
     //Get a session Connection
     NSURLSession *session = [NSURLSession sharedSession];
@@ -163,13 +164,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     FoodDetailViewController *DetailVC=(FoodDetailViewController*)segue.destinationViewController;
     if([segue.identifier isEqualToString:@"detailSegue"]){
-        NSIndexPath* indexPath=[self.tableView indexPathForSelectedRow];
-        DetailVC.foodDetailName=[self.filteredArray objectAtIndex:indexPath.row];
-        DetailVC.foodCal=[self.filteredArray objectAtIndex:indexPath.row];
+//        NSIndexPath* indexPath=[self.tableView indexPathForSelectedRow];
+        DetailVC.food=[self.totalItems objectAtIndex:self.selectedRow];
+                NSLog(@"%@Foood",DetailVC.food.name);
     }
     }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    self.selectedRow=indexPath.row;
     [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 @end

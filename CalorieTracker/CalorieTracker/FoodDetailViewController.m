@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.foodNameLabel=_foodDetailName;
-//    self.calorieInFoodLabel
+  self.foodNameLabel.text=self.food.name;
+    self.calorieInFoodLabel.text=[self.food.calorie stringByAppendingString:_food.unit];
+
     // Do any additional setup after loading the view.
 }
 
