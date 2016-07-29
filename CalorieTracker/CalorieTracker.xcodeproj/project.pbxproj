@@ -20,6 +20,7 @@
 		07026D0B1D49531400562C3B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07026D0A1D49531400562C3B /* HealthKit.framework */; };
 		07026D0E1D4999FA00562C3B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026D0D1D4999FA00562C3B /* Meal.m */; };
 		07026D111D4AAD3F00562C3B /* HealthKitManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */; };
+		07455DE61D4B10D200BCFF8F /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */; };
 		814EEBBF4B36CD309A328BEB /* libPods-CalorieTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */; };
 		96C3A92B1D4820090064BEDC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92A1D4820090064BEDC /* User.m */; };
 		96C3A92E1D4864550064BEDC /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92D1D4864550064BEDC /* Day.m */; };
@@ -50,6 +51,8 @@
 		07026D0D1D4999FA00562C3B /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		07026D0F1D4AAD3F00562C3B /* HealthKitManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManagerVC.h; sourceTree = "<group>"; };
 		07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitManagerVC.m; sourceTree = "<group>"; };
+		07455DE41D4B10D200BCFF8F /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
+		07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
 		96C3A9291D4820090064BEDC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		96C3A92A1D4820090064BEDC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		96C3A92C1D4864550064BEDC /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				07026CC31D4808DA00562C3B /* UserInfoViewController.m */,
 				07026D0F1D4AAD3F00562C3B /* HealthKitManagerVC.h */,
 				07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */,
+				07455DE41D4B10D200BCFF8F /* FoodDetailViewController.h */,
+				07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				07026CB31D47F53A00562C3B /* HomeViewController.m in Sources */,
 				07026CC41D4808DA00562C3B /* UserInfoViewController.m in Sources */,
 				07026CCA1D4809E600562C3B /* CalorieHistoryViewController.m in Sources */,
+				07455DE61D4B10D200BCFF8F /* FoodDetailViewController.m in Sources */,
 				07026CB01D47F53900562C3B /* AppDelegate.m in Sources */,
 				96C3A92E1D4864550064BEDC /* Day.m in Sources */,
 				07026D111D4AAD3F00562C3B /* HealthKitManagerVC.m in Sources */,

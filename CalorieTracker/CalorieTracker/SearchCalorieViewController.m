@@ -7,7 +7,7 @@
 //
 
 #import "SearchCalorieViewController.h"
-
+#import "FoodDetailViewController.h"
 @interface SearchCalorieViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -160,4 +160,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FoodDetailViewController *DetailVC=(FoodDetailViewController*)segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"detailSegue"]){
+        NSIndexPath* indexPath=[self.tableView indexPathForSelectedRow];
+        DetailVC.foodDetailName=[self.filteredArray objectAtIndex:indexPath.row];
+        DetailVC.foodCal=[self.filteredArray objectAtIndex:indexPath.row];
+    }
+    }
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
 @end

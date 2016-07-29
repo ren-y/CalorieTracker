@@ -37,9 +37,14 @@
         return;
     }
     
-    NSArray *readTypes = @[[HKObjectType quantityTypeForIdentifier:HKWorkoutSortIdentifierTotalEnergyBurned]];
+//    NSArray *readTypes = @[[HKObjectType quantityTypeForIdentifier:HKWorkoutSortIdentifierTotalEnergyBurned]];
     
-    //    NSArray *readTypes = @[[HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth]];
+    
+    //============
+    
+    //
+    
+      //    NSArray *readTypes = @[[HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth]];
 //    @property (readonly, strong, nullable) HKQuantity *totalEnergyBurned;
 //    NSArray *writeTypes = @[[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass]];
     
@@ -48,7 +53,10 @@
     
 }
 
-    
+ /*
+  
+  
+  */
     
    
 
@@ -63,6 +71,28 @@
 
 - (int)readCalorieBurnt{
     
+  //  NSError *error;
+ //      HKQuantity *totalEnergyBurned=[self.healthStore totalEnergyBurnedWithError:&error];
+    
+//  //  if (!totalEnergyBurned) {
+//        NSLog(@"Either an error occured fetching the user's HealthKit information or none has been stored yet");
+//    }
+    
+//    return energyBurned;
+    /*
+     - (NSDate *)readBirthDate {
+     NSError *error;
+     NSDate *dateOfBirth = [self.healthStore dateOfBirthWithError:&error];   // Convenience method of HKHealthStore to get date of birth directly.
+     
+     if (!dateOfBirth) {
+     NSLog(@"Either an error occured fetching the user's age information or none has been stored yet. In your app, try to handle this gracefully.");
+     }
+     
+     return dateOfBirth;
+     }
+
+     
+     */
     
 //    NSError *error;
 //    
