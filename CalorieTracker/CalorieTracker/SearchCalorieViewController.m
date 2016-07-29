@@ -151,12 +151,12 @@
     if(_filteredArray != nil){
     Food *food=self.filteredArray[indexPath.row];
         [self.delegate passItem:food];
-    NSLog(@"calorie::%@  unit::%@ path::%ld",food.name,food.unit,indexPath.row);
+//    NSLog(@"calorie::%@  unit::%@ path::%ld",food.name,food.unit,indexPath.row);
     }
     else{
     Food *food=self.totalItems[indexPath.row];
          [self.delegate passItem:food];
-    NSLog(@"calorie::%@  unit::%@ path::%ld",food.calorie,food.unit,indexPath.row);
+//    NSLog(@"calorie::%@  unit::%@ path::%ld",food.calorie,food.unit,indexPath.row);
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
