@@ -157,7 +157,7 @@
          [self.delegate passItem:food];
     NSLog(@"calorie::%@  unit::%@ path::%ld",food.calorie,food.unit,indexPath.row);
     }
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

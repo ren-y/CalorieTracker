@@ -146,8 +146,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
-        HomeViewController *homeViewController=(HomeViewController*)segue.destinationViewController;
-        
+        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
+
+        HomeViewController *homeViewController=(HomeViewController*)[navController.viewControllers firstObject];
         [homeViewController setCalorieLabel:self.user];
     }
 }
