@@ -52,6 +52,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     //[self initializeHealthStoreWithAuthorization];
+   
     
     self.day = [[Day alloc] init];
 //    self.user = [User allObjects];
@@ -150,5 +152,38 @@
 //    self.netResultLabel.text = (user.calorie - self.calorieConsumed);
 //netResultLabel.text=targetCalories-ConsumedCal
 }
+- (void)initializeHealthStoreWithAuthorization {
+    
+    if([HKHealthStore isHealthDataAvailable]) {
+        
+        self.healthStore = [[HKHealthStore alloc] init];
+        
+        NSSet *writeDataTypes = [self dataTypesToWrite];
+        
+        NSSet *readDataTypes = [self dataTypesToRead];
+        
+        [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
+            
+            if(error) {
+                
+                NSLog(@"%@", error);
+                
+            } else {
+                
+                NSLog(@"Success is %d", success);
+            }
+        }];
+    }
+}
 
+- (NSSet *)dataTypesToRead {
+    
+        HKCharacteristicType * workoutType = [HKObjectType characteristicTypeForIdentifier:HKWorkoutTypeIdentifier];
+    return [NSSet setWithObjects:workoutType, nil];
+}
+
+- (NSSet *)dataTypesToWrite {
+    HKCharacteristicType * workoutType = [HKObjectType characteristicTypeForIdentifier:HKWorkoutTypeIdentifier];
+    return [NSSet setWithObjects:workoutType, nil];
+}
 @end

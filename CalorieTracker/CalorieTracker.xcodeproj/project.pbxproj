@@ -19,18 +19,10 @@
 		07026CE51D493C6A00562C3B /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026CE41D493C6A00562C3B /* Food.m */; };
 		07026D0B1D49531400562C3B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07026D0A1D49531400562C3B /* HealthKit.framework */; };
 		07026D0E1D4999FA00562C3B /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026D0D1D4999FA00562C3B /* Meal.m */; };
-		07026D111D4AAD3F00562C3B /* HealthKitManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */; };
+		07455DE61D4B10D200BCFF8F /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */; };
 		814EEBBF4B36CD309A328BEB /* libPods-CalorieTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */; };
 		96C3A92B1D4820090064BEDC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92A1D4820090064BEDC /* User.m */; };
 		96C3A92E1D4864550064BEDC /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92D1D4864550064BEDC /* Day.m */; };
-		96E2B1261D4B103400F14D53 /* CalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC491D49B74A00120F59 /* CalendarWeekView.m */; };
-		96E2B1271D4B130C00F14D53 /* NSDate+DateAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC4B1D49B74A00120F59 /* NSDate+DateAddition.m */; };
-		96FDDC4F1D49B74A00120F59 /* SingleSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC3E1D49B74A00120F59 /* SingleSelectionCell.m */; };
-		96FDDC501D49B74A00120F59 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC401D49B74A00120F59 /* CalendarView.m */; };
-		96FDDC511D49B74A00120F59 /* SingleSelectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC431D49B74A00120F59 /* SingleSelectionHeaderView.m */; };
-		96FDDC521D49B74A00120F59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC451D49B74A00120F59 /* ViewController.m */; };
-		96FDDC531D49B74A00120F59 /* NSDate+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC471D49B74A00120F59 /* NSDate+IndexPath.m */; };
-		96FDDC561D49B74A00120F59 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDDC4C1D49B74A00120F59 /* UINavigationBar+Addition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,30 +48,13 @@
 		07026D0A1D49531400562C3B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		07026D0C1D4999FA00562C3B /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
 		07026D0D1D4999FA00562C3B /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
-		07026D0F1D4AAD3F00562C3B /* HealthKitManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManagerVC.h; sourceTree = "<group>"; };
-		07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitManagerVC.m; sourceTree = "<group>"; };
+		07455DE41D4B10D200BCFF8F /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
+		07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
 		96C3A9291D4820090064BEDC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		96C3A92A1D4820090064BEDC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		96C3A92C1D4864550064BEDC /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		96C3A92D1D4864550064BEDC /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		96E993F8130232525FED9073 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		96FDDC3E1D49B74A00120F59 /* SingleSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectionCell.m; sourceTree = "<group>"; };
-		96FDDC3F1D49B74A00120F59 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
-		96FDDC401D49B74A00120F59 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
-		96FDDC411D49B74A00120F59 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
-		96FDDC421D49B74A00120F59 /* SingleSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectionCell.h; sourceTree = "<group>"; };
-		96FDDC431D49B74A00120F59 /* SingleSelectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectionHeaderView.m; sourceTree = "<group>"; };
-		96FDDC441D49B74A00120F59 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		96FDDC451D49B74A00120F59 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		96FDDC461D49B74A00120F59 /* NSDate+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IndexPath.h"; sourceTree = "<group>"; };
-		96FDDC471D49B74A00120F59 /* NSDate+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IndexPath.m"; sourceTree = "<group>"; };
-		96FDDC481D49B74A00120F59 /* CalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarWeekView.h; sourceTree = "<group>"; };
-		96FDDC491D49B74A00120F59 /* CalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarWeekView.m; sourceTree = "<group>"; };
-		96FDDC4A1D49B74A00120F59 /* NSDate+DateAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateAddition.h"; sourceTree = "<group>"; };
-		96FDDC4B1D49B74A00120F59 /* NSDate+DateAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateAddition.m"; sourceTree = "<group>"; };
-		96FDDC4C1D49B74A00120F59 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
-		96FDDC4D1D49B74A00120F59 /* SingleSelectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectionHeaderView.h; sourceTree = "<group>"; };
-		96FDDC4E1D49B74A00120F59 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		ABD2E3065465FBA689137092 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CalorieTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,7 +75,6 @@
 		07026C9F1D47F53900562C3B = {
 			isa = PBXGroup;
 			children = (
-				96FDDC241D49B6D600120F59 /* CalendarFiles */,
 				07026CAA1D47F53900562C3B /* CalorieTracker */,
 				07026CA91D47F53900562C3B /* Products */,
 				C886B9E41CF198A436DE4FE3 /* Pods */,
@@ -148,8 +122,8 @@
 				07026CC91D4809E600562C3B /* CalorieHistoryViewController.m */,
 				07026CC21D4808DA00562C3B /* UserInfoViewController.h */,
 				07026CC31D4808DA00562C3B /* UserInfoViewController.m */,
-				07026D0F1D4AAD3F00562C3B /* HealthKitManagerVC.h */,
-				07026D101D4AAD3F00562C3B /* HealthKitManagerVC.m */,
+				07455DE41D4B10D200BCFF8F /* FoodDetailViewController.h */,
+				07455DE51D4B10D200BCFF8F /* FoodDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -196,30 +170,6 @@
 				B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		96FDDC241D49B6D600120F59 /* CalendarFiles */ = {
-			isa = PBXGroup;
-			children = (
-				96FDDC441D49B74A00120F59 /* ViewController.h */,
-				96FDDC451D49B74A00120F59 /* ViewController.m */,
-				96FDDC421D49B74A00120F59 /* SingleSelectionCell.h */,
-				96FDDC3E1D49B74A00120F59 /* SingleSelectionCell.m */,
-				96FDDC3F1D49B74A00120F59 /* CalendarView.h */,
-				96FDDC401D49B74A00120F59 /* CalendarView.m */,
-				96FDDC411D49B74A00120F59 /* Calendar.h */,
-				96FDDC4D1D49B74A00120F59 /* SingleSelectionHeaderView.h */,
-				96FDDC431D49B74A00120F59 /* SingleSelectionHeaderView.m */,
-				96FDDC461D49B74A00120F59 /* NSDate+IndexPath.h */,
-				96FDDC471D49B74A00120F59 /* NSDate+IndexPath.m */,
-				96FDDC481D49B74A00120F59 /* CalendarWeekView.h */,
-				96FDDC491D49B74A00120F59 /* CalendarWeekView.m */,
-				96FDDC4A1D49B74A00120F59 /* NSDate+DateAddition.h */,
-				96FDDC4B1D49B74A00120F59 /* NSDate+DateAddition.m */,
-				96FDDC4E1D49B74A00120F59 /* UINavigationBar+Addition.h */,
-				96FDDC4C1D49B74A00120F59 /* UINavigationBar+Addition.m */,
-			);
-			name = CalendarFiles;
 			sourceTree = "<group>";
 		};
 		C886B9E41CF198A436DE4FE3 /* Pods */ = {
@@ -364,19 +314,11 @@
 				96C3A92B1D4820090064BEDC /* User.m in Sources */,
 				07026CB31D47F53A00562C3B /* HomeViewController.m in Sources */,
 				07026CC41D4808DA00562C3B /* UserInfoViewController.m in Sources */,
-				96FDDC511D49B74A00120F59 /* SingleSelectionHeaderView.m in Sources */,
-				96FDDC531D49B74A00120F59 /* NSDate+IndexPath.m in Sources */,
-				96E2B1261D4B103400F14D53 /* CalendarWeekView.m in Sources */,
-				96FDDC501D49B74A00120F59 /* CalendarView.m in Sources */,
-				96FDDC521D49B74A00120F59 /* ViewController.m in Sources */,
-				96FDDC4F1D49B74A00120F59 /* SingleSelectionCell.m in Sources */,
 				07026CCA1D4809E600562C3B /* CalorieHistoryViewController.m in Sources */,
+				07455DE61D4B10D200BCFF8F /* FoodDetailViewController.m in Sources */,
 				07026CB01D47F53900562C3B /* AppDelegate.m in Sources */,
 				96C3A92E1D4864550064BEDC /* Day.m in Sources */,
-				07026D111D4AAD3F00562C3B /* HealthKitManagerVC.m in Sources */,
-				96E2B1271D4B130C00F14D53 /* NSDate+DateAddition.m in Sources */,
 				07026CAD1D47F53900562C3B /* main.m in Sources */,
-				96FDDC561D49B74A00120F59 /* UINavigationBar+Addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -477,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
