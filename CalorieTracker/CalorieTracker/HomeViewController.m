@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "User.h"
+#import "NSDate+DateAddition.h"
 
 
 @interface HomeViewController ()
@@ -19,8 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *calConsumedTexfield;
 @property (weak, nonatomic) IBOutlet UILabel *totalCalorieLabel;
 @property (weak, nonatomic) IBOutlet UILabel *calorieBurntLabel;
-@property int calorieConsumed;
-@property int calorieBurnt;
 
 @property (strong,nonatomic) NSString *label;
 
@@ -33,9 +32,8 @@
 @end
 
 @implementation HomeViewController
+
 - (IBAction)savePressed:(UIButton *)sender {
-    
-    
 }
 
 //-(void)mealButtonPressed{
@@ -52,6 +50,31 @@
     [realm transactionWithBlock:^{
         User *firstUser = [[User allObjects] firstObject];
         [self setCalorieLabel:firstUser];
+        
+        
+        NSDate *date = [NSDate date];
+        
+        NSCalendar *calendar = [NSDate gregorianCalendar];
+        NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+        NSDate *firstDate = [calendar dateFromComponents:components];
+        
+        
+        Day *day = [[Day objectsWhere:@"date = %@", firstDate] firstObject];
+        
+        if (!day) {
+            day = [[Day alloc] init];
+            day.calorieBurnt = 1250;
+            day.date = firstDate;
+            [[RLMRealm defaultRealm] addObject:day];
+        }
+        
+        day.targetCals = firstUser.calorie;
+        self.day = day;
+        
+        
+        self.calorieBurntLabel.text = [NSString stringWithFormat:@"%i", day.calorieBurnt];
+        self.calConsumedTexfield.text = [NSString stringWithFormat:@"%ikcal", day.calorieConsumed];
+        
     }];
     
     // fetch new user
@@ -80,13 +103,13 @@
 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]];
     self.meal=[[Meal alloc]init];
-    self.calorieBurnt=1250;
+//    self.calorieBurnt=1250;
 
      //[self initializeHealthStoreWithAuthorization];
 
    
     
-    self.day = [[Day alloc] init];
+//    self.day = [[Day alloc] init];
     
 //    self.user = [User allObjects];
     
@@ -94,7 +117,7 @@
     
     self.meal = [[Meal alloc]init];
     self.totalCalorieLabel.text = self.label;
-    self.day.calorieBurnt = 1250;
+//    self.day.calorieBurnt = 1250;
 
 //    self.day.calorieBurnt = self.calorieBurnt;
 }
@@ -160,7 +183,11 @@
 //    self.calorieConsumed += [food.calorie intValue];
 //    self.calConsumedTexfield.text = [NSString stringWithFormat:@"%i", self.calorieConsumed];
     
-    self.day.calorieConsumed += [food.calorie intValue];
+    
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        self.day.calorieConsumed += [food.calorie intValue];
+    }];
+    
     self.calConsumedTexfield.text = [NSString stringWithFormat:@"%i", self.day.calorieConsumed];
 
     NSLog(@"self.calorieConsumed--%d", self.day.calorieConsumed);

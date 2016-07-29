@@ -42,7 +42,7 @@
     
     self.dayArray = [[Day allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
     
-    if ([self.dayArray count] == 0) {
+    if ([self.dayArray count] < 3) {
         
         for (int i = 1; i < 100; i++) {
             
@@ -115,7 +115,9 @@
 }
 
 - (void)calendarView:(CalendarView *)calendarView configureSectionHeaderView:(SingleSelectionHeaderView *)headerView firstDateOfMonth:(NSDate *)firstDateOfMonth {
-    headerView.firstDateOfMonth = firstDateOfMonth;
+    if (firstDateOfMonth) {
+        headerView.firstDateOfMonth = firstDateOfMonth;
+    }
 }
 
 - (void)calendarView:(CalendarView *)calendarView configureWeekDayLabel:(UILabel *)dayLabel atWeekDay:(NSInteger)weekDay {
@@ -137,7 +139,23 @@
     
     
     
+    RLMResults<Day *> *days = [self.dayArray objectsWithPredicate:[NSPredicate predicateWithFormat:@"date >= %@ AND date < %@", date, [date dateByAddingTimeInterval:60*60*24]]];
     
+    Day *aDay = [days firstObject];
+    
+    NSString *message = [NSString stringWithFormat:@"Calories consumed %i, target %i", aDay.calorieConsumed, aDay.targetCals];
+    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:[date description]
+                                                                        message:message
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Done"
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            NSLog(@"Dismiss button tapped!");
+                                                        }];
+    [controller addAction:alertAction];
+    [self presentViewController:controller animated:YES completion:nil];
+
     
     
     
