@@ -21,11 +21,10 @@
 @property (assign) int height;
 
 @property (nonatomic) NSString *exerciseLevel;
+@property (assign)int calorie;
+@property RLMArray<Day *><Day> *daysArray;
 
-//@property (nonatomic) int targetCals;
-@property (assign) int calorie;
-
-@property (nonatomic) RLMArray<Day*><Day> *daysArray;
+//@property (nonatomic) RLMArray<Day*><Day> *daysArray;
 
 
 @end

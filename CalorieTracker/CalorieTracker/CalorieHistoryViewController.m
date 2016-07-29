@@ -23,7 +23,7 @@
 @property RLMResults<Day *> *dayArray;
 
 @end
-
+//label.text = [label.text stringByAppendingString:@"your text"];
 @implementation CalorieHistoryViewController
 
 - (void)viewWillAppear:(BOOL)animated {

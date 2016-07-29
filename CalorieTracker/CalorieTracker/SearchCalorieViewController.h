@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Food.h"
 
-@interface SearchCalorieViewController : UIViewController
+@protocol myDelegate
+
+-(void)passItem:(Food*)food;
+
+@end
+
+@interface SearchCalorieViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+@property (nonatomic,weak)id<myDelegate>delegate;
 
 @end

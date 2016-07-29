@@ -9,6 +9,7 @@
 #import "UserInfoViewController.h"
 #import "HomeViewController.h"
 #import "NSDate+DateAddition.h"
+#import "User.h"
 
 //#import "CalorieHistoryViewController.h"
 
@@ -17,7 +18,7 @@
 }
 
 @property RLMResults<User *> *userArray;
-
+@property (strong,nonatomic) User* user;
 @end
 
 @implementation UserInfoViewController
@@ -103,33 +104,32 @@
     }
 //    NSLog(@"multiplier--%.3f", multiplier);
     
-    double preBMR = (10 * weight) + 6.25 * height - (5 * age);
+    int preBMR = (10 * weight) + 6.25 * height - (5 * age);
     
-    if ([user.gender isEqual:@"m"]) {
+    if ([user.gender isEqual:@"m"]||[user.gender isEqual:@"M"]) {
         
         int BMR = (preBMR + 5) * multiplier;
-        user.calorie = BMR ;
-
         self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        user.calorie=BMR;
         NSLog(@"BMR---%d", BMR);
         
     // if women
-    } else if ([user.gender isEqual:@"f"]) {
+    } else if ([user.gender isEqual:@"f"]||[user.gender isEqual:@"F"]) {
         
         int BMR = (preBMR - 161) * multiplier;
-        user.calorie = BMR;
-        
         self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        user.calorie=BMR;
         NSLog(@"BMR---%d", BMR);
 
     } else {
         NSLog(@"Nothing Happen");
     }
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm transactionWithBlock:^{
+//    RLMRealm *realm = [RLMRealm defaultRealm];
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        [[RLMRealm defaultRealm] addObject:user];
+//        self.user=[[User alloc]init];
+       self.user=user;
         
-        [realm addObject:user];
     }];
     
     self.userArray = [User allObjects];
@@ -149,16 +149,17 @@
 }
 
 
+
 #pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
-//    HomeViewController *homeVC = segue.destinationViewController;
-//    self.userArray = [User allObjects];
-    
-//    User *user = self.userArray;
-//    homeVC.user = user;
-    
+    if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
+        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
+
+        HomeViewController *homeViewController=(HomeViewController*)[navController.viewControllers firstObject];
+        [homeViewController setCalorieLabel:self.user];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
