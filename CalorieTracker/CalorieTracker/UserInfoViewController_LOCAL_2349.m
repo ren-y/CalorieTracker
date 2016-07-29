@@ -153,7 +153,7 @@
         self.user = user;
         
     }];
-    
+//    
 //    __block User *user = nil;
 //        int weight = [self.weightTextField.text intValue];
 //        int age = [self.ageTextField.text intValue];

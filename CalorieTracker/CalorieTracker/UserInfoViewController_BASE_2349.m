@@ -154,15 +154,15 @@
         
     }];
     
-//    __block User *user = nil;
-//        int weight = [self.weightTextField.text intValue];
-//        int age = [self.ageTextField.text intValue];
-//        user.age = age;
-//        user.gender = self.genderTextField.text;
-//    [[RLMRealm defaultRealm] transactionWithBlock:^{
-//        NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
-//        NSLog(@"%@", selectedLevel);
-//    self.userArray = [User allObjects];
+    __block User *user = nil;
+        int weight = [self.weightTextField.text intValue];
+        int age = [self.ageTextField.text intValue];
+        user.age = age;
+        user.gender = self.genderTextField.text;
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
+        NSLog(@"%@", selectedLevel);
+    self.userArray = [User allObjects];
  
 }
 
