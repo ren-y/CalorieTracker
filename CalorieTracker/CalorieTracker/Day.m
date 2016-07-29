@@ -14,4 +14,8 @@
 //    return @"userDate";
 //}
 
+-(BOOL)indicator {
+    return TRUE;
+}
+
 @end

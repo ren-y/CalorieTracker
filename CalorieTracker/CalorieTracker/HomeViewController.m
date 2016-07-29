@@ -18,12 +18,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *dinnerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *calConsumedTexfield;
 @property (weak, nonatomic) IBOutlet UILabel *totalCalorieLabel;
-@property (strong,nonatomic) NSString *label;
 @property (weak, nonatomic) IBOutlet UILabel *calorieBurntLabel;
-@property int calorieConsumed;
-@property int calorieBurnt;
 
-@property (strong,nonatomic)Meal *meal;
+@property (strong,nonatomic) NSString *label;
+
+@property (nonatomic) Day *day;
+@property (nonatomic) User *user;
+
+@property (strong,nonatomic) Meal *meal;
+
 
 @end
 
@@ -49,11 +52,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.meal=[[Meal alloc]init];
-    self.totalCalorieLabel.text=self.label;
-    self.calorieBurnt=1250;
-   
     
+    self.day = [[Day alloc] init];
+//    self.user = [User allObjects];
+    
+//    User *user = self.user;
+    
+    self.meal = [[Meal alloc]init];
+    self.totalCalorieLabel.text = self.label;
+    self.day.calorieBurnt = 1250;
+
+//    self.day.calorieBurnt = self.calorieBurnt;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,27 +112,43 @@
         [self updateCaloriesConsumedWithFood:food];
         
         //hard coading Pedometer value
-        self.calorieBurntLabel.text=[NSString stringWithFormat:@"Calories Burnt   %d",self.calorieBurnt];
-
+//        self.calorieBurntLabel.text=[NSString stringWithFormat:@"Calories Burnt   %d", self.calorieBurnt];
+        self.calorieBurntLabel.text=[NSString stringWithFormat:@"Calories Burnt   %d", self.day.calorieBurnt];
+        
+        int netResult = self.user.calorie - self.day.calorieConsumed - self.day.calorieBurnt;
+        NSLog(@"user.calorie: %d - calorieConsumed:%d - burnCal:%d = NetResult: %d", self.user.calorie, self.day.calorieConsumed, self.day.calorieBurnt, netResult);
+        self.netResultLabel.text = [NSString stringWithFormat:@"%d", netResult];
+//        NSLog(@"Day.calorieBurnt--%d", self.day.calorieBurnt);
     }
 }
 
 -(void)updateCaloriesConsumedWithFood:(Food *)food {
-    self.calorieConsumed+=[food.calorie intValue];
-    self.calConsumedTexfield.text=[NSString stringWithFormat:@"%i", self.calorieConsumed];
+//    self.calorieConsumed += [food.calorie intValue];
+//    self.calConsumedTexfield.text = [NSString stringWithFormat:@"%i", self.calorieConsumed];
+    
+    self.day.calorieConsumed += [food.calorie intValue];
+    self.calConsumedTexfield.text = [NSString stringWithFormat:@"%i", self.day.calorieConsumed];
+
+    NSLog(@"self.calorieConsumed--%d", self.day.calorieConsumed);
 }
 
 //From UserVC to Home ==>segue
--(void)setCalorieLabel:(User*)user{
+-(void)setCalorieLabel:(User*)user {
     
-    NSString *myString =[NSString stringWithFormat:@"%d",user.calorie];
+    NSString *myString = [NSString stringWithFormat:@"%d", user.calorie];
     NSLog(@"In label home::%@",myString);
-       self.label=[NSString stringWithFormat:@"  Your Target Calorie  %@",myString];
+    self.label = [NSString stringWithFormat:@"  Your Target Calorie  %@", myString];
+//    self.user = user;
 }
-//
 
--(void)updateCalender{
-//netResultLabel.text=targetCalories-COnsumedCal
+-(void)updateCalender: (User *)user {
+//    int netResult = user.calorie - self.calorieConsumed;
+//    NSLog(@"netResult--%d", netResult);
+//    self.netResultLabel.text = [NSString stringWithFormat:@"%d", netResult];
+    
+    
+//    self.netResultLabel.text = (user.calorie - self.calorieConsumed);
+//netResultLabel.text=targetCalories-ConsumedCal
 }
 
 @end

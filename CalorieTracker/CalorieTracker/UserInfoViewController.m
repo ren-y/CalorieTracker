@@ -18,7 +18,7 @@
 }
 
 @property RLMResults<User *> *userArray;
-@property (strong,nonatomic) User* user;
+@property (strong,nonatomic) User *user;
 @end
 
 @implementation UserInfoViewController
@@ -60,9 +60,9 @@
 #pragma mark - Calculate BMR
 - (IBAction)calculatePressed:(UIButton *)sender {
     
-    User *user = [[User alloc] init];
-    
-    user.name = self.nameTextField.text;
+//    User *user = [[User alloc] init];
+    self.user = [[User alloc] init];
+    self.user.name = self.nameTextField.text;
     
     
 //    NSDate *date = [NSDate today];
@@ -71,20 +71,20 @@
 //    [user.daysArray addObject:(Day*)str];
     
     int height = [self.heightTextField.text intValue];
-    user.height = height;
+    self.user.height = height;
 
     int weight = [self.weightTextField.text intValue];
-    user.weight = weight;
+    self.user.weight = weight;
     
     int age = [self.ageTextField.text intValue];
-    user.age = age;
+    self.user.age = age;
     
-    user.gender = self.genderTextField.text;
+    self.user.gender = self.genderTextField.text;
     
     NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
 //    NSLog(@"%@", selectedLevel);
     
-    user.exerciseLevel = selectedLevel;
+    self.user.exerciseLevel = selectedLevel;
     double multiplier = 0;
     
     if ([selectedLevel isEqualToString:@"Sedentary"]) {
@@ -102,23 +102,22 @@
     } else {
         multiplier = 1.9;
     }
-//    NSLog(@"multiplier--%.3f", multiplier);
     
     int preBMR = (10 * weight) + 6.25 * height - (5 * age);
     
-    if ([user.gender isEqual:@"m"]||[user.gender isEqual:@"M"]) {
+    if ([self.user.gender isEqual:@"m"]||[self.user.gender isEqual:@"M"]) {
         
         int BMR = (preBMR + 5) * multiplier;
         self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
-        user.calorie=BMR;
+        self.user.calorie=BMR;
         NSLog(@"BMR---%d", BMR);
         
     // if women
-    } else if ([user.gender isEqual:@"f"]||[user.gender isEqual:@"F"]) {
+    } else if ([self.user.gender isEqual:@"f"]||[self.user.gender isEqual:@"F"]) {
         
         int BMR = (preBMR - 161) * multiplier;
         self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
-        user.calorie=BMR;
+        self.user.calorie=BMR;
         NSLog(@"BMR---%d", BMR);
 
     } else {
@@ -126,9 +125,9 @@
     }
 //    RLMRealm *realm = [RLMRealm defaultRealm];
     [[RLMRealm defaultRealm] transactionWithBlock:^{
-        [[RLMRealm defaultRealm] addObject:user];
+        [[RLMRealm defaultRealm] addObject:self.user];
 //        self.user=[[User alloc]init];
-       self.user=user;
+//       self.user=user;
         
     }];
     
@@ -155,9 +154,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
-        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
-
-        HomeViewController *homeViewController=(HomeViewController*)[navController.viewControllers firstObject];
+        UINavigationController *navController = (UINavigationController*)segue.destinationViewController;
+        HomeViewController *homeViewController = (HomeViewController*)[navController.viewControllers firstObject];
+        
         [homeViewController setCalorieLabel:self.user];
     }
 }

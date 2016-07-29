@@ -11,14 +11,16 @@
 
 @interface Day : RLMObject
 
-//@property (nonatomic) NSString *day;
 @property (nonatomic) NSDate *date;
 @property (assign) int targetCals;
 
-@property (nonatomic) NSString *indicator;
+@property (assign) int calorieConsumed;
+@property (assign) int calorieBurnt;
 
 //@property (nonatomic) RLMArray<Food> *foodsArray;
 //@property NSInteger userDate;
+
+-(BOOL) indicator;
 
 @end
 RLM_ARRAY_TYPE(Day)
