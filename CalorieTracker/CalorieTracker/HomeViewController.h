@@ -14,6 +14,7 @@
 #import <HealthKit/HealthKit.h>
 
 @interface HomeViewController : UIViewController<myDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *netResultLabel;
 @property (nonatomic, strong) HKHealthStore *healthStore;
 //@property (assign)int calorieBurnt;

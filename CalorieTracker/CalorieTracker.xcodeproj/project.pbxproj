@@ -23,6 +23,13 @@
 		814EEBBF4B36CD309A328BEB /* libPods-CalorieTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */; };
 		96C3A92B1D4820090064BEDC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92A1D4820090064BEDC /* User.m */; };
 		96C3A92E1D4864550064BEDC /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3A92D1D4864550064BEDC /* Day.m */; };
+		96E2B12B1D4B42C000F14D53 /* NSDate+DateAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B12A1D4B42C000F14D53 /* NSDate+DateAddition.m */; };
+		96E2B1391D4B430C00F14D53 /* NSDate+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B12D1D4B430C00F14D53 /* NSDate+IndexPath.m */; };
+		96E2B13A1D4B430C00F14D53 /* SingleSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B12F1D4B430C00F14D53 /* SingleSelectionCell.m */; };
+		96E2B13B1D4B430C00F14D53 /* SingleSelectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B1311D4B430C00F14D53 /* SingleSelectionHeaderView.m */; };
+		96E2B13C1D4B430C00F14D53 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B1331D4B430C00F14D53 /* UINavigationBar+Addition.m */; };
+		96E2B13D1D4B430C00F14D53 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B1361D4B430C00F14D53 /* CalendarView.m */; };
+		96E2B13E1D4B430C00F14D53 /* CalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E2B1381D4B430C00F14D53 /* CalendarWeekView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +61,21 @@
 		96C3A92A1D4820090064BEDC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		96C3A92C1D4864550064BEDC /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		96C3A92D1D4864550064BEDC /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
+		96E2B1291D4B429A00F14D53 /* NSDate+DateAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateAddition.h"; sourceTree = "<group>"; };
+		96E2B12A1D4B42C000F14D53 /* NSDate+DateAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateAddition.m"; sourceTree = "<group>"; };
+		96E2B12C1D4B430C00F14D53 /* NSDate+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IndexPath.h"; sourceTree = "<group>"; };
+		96E2B12D1D4B430C00F14D53 /* NSDate+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IndexPath.m"; sourceTree = "<group>"; };
+		96E2B12E1D4B430C00F14D53 /* SingleSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectionCell.h; sourceTree = "<group>"; };
+		96E2B12F1D4B430C00F14D53 /* SingleSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectionCell.m; sourceTree = "<group>"; };
+		96E2B1301D4B430C00F14D53 /* SingleSelectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectionHeaderView.h; sourceTree = "<group>"; };
+		96E2B1311D4B430C00F14D53 /* SingleSelectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectionHeaderView.m; sourceTree = "<group>"; };
+		96E2B1321D4B430C00F14D53 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
+		96E2B1331D4B430C00F14D53 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
+		96E2B1341D4B430C00F14D53 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		96E2B1351D4B430C00F14D53 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		96E2B1361D4B430C00F14D53 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
+		96E2B1371D4B430C00F14D53 /* CalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarWeekView.h; sourceTree = "<group>"; };
+		96E2B1381D4B430C00F14D53 /* CalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarWeekView.m; sourceTree = "<group>"; };
 		96E993F8130232525FED9073 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		ABD2E3065465FBA689137092 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CalorieTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +97,7 @@
 		07026C9F1D47F53900562C3B = {
 			isa = PBXGroup;
 			children = (
+				96E2B1281D4B423800F14D53 /* CalendarFiles */,
 				07026CAA1D47F53900562C3B /* CalorieTracker */,
 				07026CA91D47F53900562C3B /* Products */,
 				C886B9E41CF198A436DE4FE3 /* Pods */,
@@ -170,6 +193,29 @@
 				B5886E0D6FDB78BED80A6BD6 /* libPods-CalorieTracker.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96E2B1281D4B423800F14D53 /* CalendarFiles */ = {
+			isa = PBXGroup;
+			children = (
+				96E2B12C1D4B430C00F14D53 /* NSDate+IndexPath.h */,
+				96E2B12D1D4B430C00F14D53 /* NSDate+IndexPath.m */,
+				96E2B12E1D4B430C00F14D53 /* SingleSelectionCell.h */,
+				96E2B12F1D4B430C00F14D53 /* SingleSelectionCell.m */,
+				96E2B1301D4B430C00F14D53 /* SingleSelectionHeaderView.h */,
+				96E2B1311D4B430C00F14D53 /* SingleSelectionHeaderView.m */,
+				96E2B1321D4B430C00F14D53 /* UINavigationBar+Addition.h */,
+				96E2B1331D4B430C00F14D53 /* UINavigationBar+Addition.m */,
+				96E2B1341D4B430C00F14D53 /* Calendar.h */,
+				96E2B1351D4B430C00F14D53 /* CalendarView.h */,
+				96E2B1361D4B430C00F14D53 /* CalendarView.m */,
+				96E2B1371D4B430C00F14D53 /* CalendarWeekView.h */,
+				96E2B1381D4B430C00F14D53 /* CalendarWeekView.m */,
+				96E2B1291D4B429A00F14D53 /* NSDate+DateAddition.h */,
+				96E2B12A1D4B42C000F14D53 /* NSDate+DateAddition.m */,
+			);
+			name = CalendarFiles;
+			path = CalorieTracker;
 			sourceTree = "<group>";
 		};
 		C886B9E41CF198A436DE4FE3 /* Pods */ = {
@@ -308,17 +354,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E2B13A1D4B430C00F14D53 /* SingleSelectionCell.m in Sources */,
+				96E2B12B1D4B42C000F14D53 /* NSDate+DateAddition.m in Sources */,
 				07026D0E1D4999FA00562C3B /* Meal.m in Sources */,
 				07026CC71D48095800562C3B /* SearchCalorieViewController.m in Sources */,
 				07026CE51D493C6A00562C3B /* Food.m in Sources */,
 				96C3A92B1D4820090064BEDC /* User.m in Sources */,
+				96E2B1391D4B430C00F14D53 /* NSDate+IndexPath.m in Sources */,
 				07026CB31D47F53A00562C3B /* HomeViewController.m in Sources */,
+				96E2B13E1D4B430C00F14D53 /* CalendarWeekView.m in Sources */,
 				07026CC41D4808DA00562C3B /* UserInfoViewController.m in Sources */,
 				07026CCA1D4809E600562C3B /* CalorieHistoryViewController.m in Sources */,
 				07455DE61D4B10D200BCFF8F /* FoodDetailViewController.m in Sources */,
+				96E2B13B1D4B430C00F14D53 /* SingleSelectionHeaderView.m in Sources */,
+				96E2B13D1D4B430C00F14D53 /* CalendarView.m in Sources */,
 				07026CB01D47F53900562C3B /* AppDelegate.m in Sources */,
 				96C3A92E1D4864550064BEDC /* Day.m in Sources */,
 				07026CAD1D47F53900562C3B /* main.m in Sources */,
+				96E2B13C1D4B430C00F14D53 /* UINavigationBar+Addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

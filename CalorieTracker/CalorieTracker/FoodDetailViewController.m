@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]];
   self.foodNameLabel.text=self.food.name;
     self.calorieInFoodLabel.text=[self.food.calorie stringByAppendingString:_food.unit];
 
