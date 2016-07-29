@@ -18,7 +18,7 @@
 }
 
 @property RLMResults<User *> *userArray;
-@property (strong,nonatomic) User* user;
+@property (strong,nonatomic) User *user;
 @end
 
 @implementation UserInfoViewController
@@ -31,10 +31,13 @@
     
     pickerExerciseLevel = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
     
+<<<<<<< HEAD
+=======
     
 //    pickerDate = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
 
 
+>>>>>>> 1451000ca7f872705c2a2683fa6d86b3ab4dc193
     self.levelPickerView.delegate = self;
     self.levelPickerView.dataSource = self;
     
@@ -63,7 +66,9 @@
 
 #pragma mark - Calculate BMR
 - (IBAction)calculatePressed:(UIButton *)sender {
- 
+    
+<<<<<<< HEAD
+    
     __block User *user = nil;
     
     [[RLMRealm defaultRealm] transactionWithBlock:^{
@@ -71,6 +76,34 @@
         
     }];
 
+=======
+//    User *user = [[User alloc] init];
+    self.user = [[User alloc] init];
+    self.user.name = self.nameTextField.text;
+    
+    
+//    NSDate *date = [NSDate today];
+//    NSLog(@"user.daysArray--%@, date--%@", user.daysArray, (Day*)date);
+//    NSString *str = [NSString stringWithFormat:@"%@", (Day*)date];
+//    [user.daysArray addObject:(Day*)str];
+    
+    int height = [self.heightTextField.text intValue];
+    self.user.height = height;
+
+    int weight = [self.weightTextField.text intValue];
+    self.user.weight = weight;
+    
+    int age = [self.ageTextField.text intValue];
+    self.user.age = age;
+    
+    self.user.gender = self.genderTextField.text;
+    
+    NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
+//    NSLog(@"%@", selectedLevel);
+    
+    self.user.exerciseLevel = selectedLevel;
+    double multiplier = 0;
+>>>>>>> 1451000ca7f872705c2a2683fa6d86b3ab4dc193
     
     [[RLMRealm defaultRealm] transactionWithBlock:^{
         
@@ -84,6 +117,7 @@
         int height = [self.heightTextField.text intValue];
         user.height = height;
         
+<<<<<<< HEAD
         int weight = [self.weightTextField.text intValue];
         user.weight = weight;
         
@@ -151,19 +185,42 @@
         //        [[RLMRealm defaultRealm] addObject:user];
         //        self.user=[[User alloc]init];
         self.user = user;
+=======
+    } else {
+        multiplier = 1.9;
+    }
+    
+    int preBMR = (10 * weight) + 6.25 * height - (5 * age);
+    
+    if ([self.user.gender isEqual:@"m"]||[self.user.gender isEqual:@"M"]) {
+        
+        int BMR = (preBMR + 5) * multiplier;
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        self.user.calorie=BMR;
+        NSLog(@"BMR---%d", BMR);
+        
+    // if women
+    } else if ([self.user.gender isEqual:@"f"]||[self.user.gender isEqual:@"F"]) {
+        
+        int BMR = (preBMR - 161) * multiplier;
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        self.user.calorie=BMR;
+        NSLog(@"BMR---%d", BMR);
+
+    } else {
+        NSLog(@"Nothing Happen");
+    }
+//    RLMRealm *realm = [RLMRealm defaultRealm];
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        [[RLMRealm defaultRealm] addObject:self.user];
+//        self.user=[[User alloc]init];
+//       self.user=user;
+>>>>>>> 1451000ca7f872705c2a2683fa6d86b3ab4dc193
         
     }];
-//    
-//    __block User *user = nil;
-//        int weight = [self.weightTextField.text intValue];
-//        int age = [self.ageTextField.text intValue];
-//        user.age = age;
-//        user.gender = self.genderTextField.text;
-//    [[RLMRealm defaultRealm] transactionWithBlock:^{
-//        NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
-//        NSLog(@"%@", selectedLevel);
-//    self.userArray = [User allObjects];
- 
+    
+    self.userArray = [User allObjects];
+    
 }
 
 #pragma mark - TextField Delegates
@@ -185,9 +242,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
+<<<<<<< HEAD
         //        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
         
         HomeViewController *homeViewController=(HomeViewController*)segue.destinationViewController;
+=======
+        UINavigationController *navController = (UINavigationController*)segue.destinationViewController;
+        HomeViewController *homeViewController = (HomeViewController*)[navController.viewControllers firstObject];
+        
+>>>>>>> 1451000ca7f872705c2a2683fa6d86b3ab4dc193
         [homeViewController setCalorieLabel:self.user];
     }
 }

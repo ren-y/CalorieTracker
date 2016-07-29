@@ -44,7 +44,7 @@
 }
 
 
-- (void)setDay:(Day *)day andDate:(NSDate *)date {
+- (void)setDay:(Day *)day {
     _date = day.date;
     if (_date) {
         self.dateLabel.text = [NSString stringWithFormat:@"%ld", [self.calendar component:NSCalendarUnitDay fromDate:_date]];
