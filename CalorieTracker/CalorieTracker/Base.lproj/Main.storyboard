@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Sga-41-hjQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Sga-41-hjQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -237,18 +237,18 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jue-Am-ImM" id="5Ax-XX-rgA">
-                                            <rect key="frame" x="0.0" y="0.0" width="253" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CXi-Fg-0NB">
-                                                    <rect key="frame" x="15" y="15" width="32" height="20"/>
+                                                    <rect key="frame" x="15" y="15" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CBg-ra-dKq">
-                                                    <rect key="frame" x="211" y="15" width="42" height="20"/>
+                                                    <rect key="frame" x="211.5" y="15" width="41.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -501,6 +501,19 @@
                                     <action selector="getHealthKitData:" destination="sHJ-x3-l0d" eventType="touchUpInside" id="PB6-jn-Tuw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zV5-YN-xN5">
+                                <rect key="frame" x="139" y="429" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="94p-w1-ZyN"/>
+                                    <constraint firstAttribute="height" constant="30" id="epN-gL-Yfl"/>
+                                </constraints>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="sHJ-x3-l0d" eventType="touchUpInside" id="557-k4-r3U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -523,6 +536,7 @@
                             <constraint firstAttribute="trailing" secondItem="vxt-PL-yC1" secondAttribute="trailing" id="HKX-pR-DlC"/>
                             <constraint firstItem="NHy-gk-avm" firstAttribute="top" secondItem="0pC-Dj-a3M" secondAttribute="bottom" constant="30" id="IAK-XN-UKX"/>
                             <constraint firstItem="yX5-wR-19b" firstAttribute="centerX" secondItem="Trg-Yf-lz5" secondAttribute="centerX" id="IVN-Wp-GWa"/>
+                            <constraint firstItem="Rhh-00-fYe" firstAttribute="top" secondItem="zV5-YN-xN5" secondAttribute="bottom" constant="8" id="IdS-Ts-FEr"/>
                             <constraint firstItem="NHy-gk-avm" firstAttribute="baseline" secondItem="11S-fw-76R" secondAttribute="baseline" id="IjB-O0-O8G"/>
                             <constraint firstItem="Xt2-2a-P4U" firstAttribute="top" secondItem="1oO-9e-1v4" secondAttribute="bottom" constant="8" symbolic="YES" id="Iw0-9q-2TZ"/>
                             <constraint firstItem="NHy-gk-avm" firstAttribute="trailing" secondItem="h5l-bO-y2K" secondAttribute="trailing" id="KPy-WQ-aPM"/>
@@ -537,6 +551,7 @@
                             <constraint firstItem="NHy-gk-avm" firstAttribute="trailing" secondItem="0pC-Dj-a3M" secondAttribute="trailing" id="Rss-0Z-QQP"/>
                             <constraint firstItem="vxt-PL-yC1" firstAttribute="leading" secondItem="0RI-kA-RHH" secondAttribute="leading" id="THp-Ek-HVd"/>
                             <constraint firstItem="Li6-VL-cdp" firstAttribute="centerY" secondItem="NHy-gk-avm" secondAttribute="centerY" id="WG0-dM-aPH"/>
+                            <constraint firstItem="zV5-YN-xN5" firstAttribute="top" secondItem="xx8-Se-DOn" secondAttribute="bottom" constant="-1" id="Wbc-7z-ZVr"/>
                             <constraint firstItem="h5l-bO-y2K" firstAttribute="top" secondItem="NHy-gk-avm" secondAttribute="bottom" constant="34" id="Y6W-JS-TlM"/>
                             <constraint firstItem="Xxd-5E-hLR" firstAttribute="trailing" secondItem="Li6-VL-cdp" secondAttribute="trailing" id="axz-0i-n7A"/>
                             <constraint firstItem="Li6-VL-cdp" firstAttribute="leading" secondItem="11S-fw-76R" secondAttribute="trailing" constant="94" id="bmX-TA-4mI"/>
@@ -564,6 +579,7 @@
                             <constraint firstItem="Xxd-5E-hLR" firstAttribute="leading" secondItem="BDc-nC-mQO" secondAttribute="leading" id="srm-4P-AKW"/>
                             <constraint firstItem="Rhh-00-fYe" firstAttribute="leading" secondItem="Trg-Yf-lz5" secondAttribute="leading" constant="28" id="tOi-Fl-BNM"/>
                             <constraint firstItem="65T-W9-biD" firstAttribute="bottom" secondItem="0pC-Dj-a3M" secondAttribute="bottom" id="vaV-u2-wHj"/>
+                            <constraint firstItem="zV5-YN-xN5" firstAttribute="centerX" secondItem="Trg-Yf-lz5" secondAttribute="centerX" constant="2" id="xPP-eW-1wH"/>
                             <constraint firstItem="vxt-PL-yC1" firstAttribute="leading" secondItem="Trg-Yf-lz5" secondAttribute="leadingMargin" constant="4" id="zOs-nN-5Zi"/>
                         </constraints>
                     </view>
