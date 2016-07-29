@@ -8,7 +8,10 @@
 
 #import "UserInfoViewController.h"
 #import "HomeViewController.h"
+#import "NSDate+DateAddition.h"
 #import "User.h"
+
+//#import "CalorieHistoryViewController.h"
 
 @interface UserInfoViewController () {
     NSArray *pickerExerciseLevel;
@@ -28,6 +31,10 @@
     
     pickerExerciseLevel = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
     
+    
+//    pickerDate = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
+
+
     self.levelPickerView.delegate = self;
     self.levelPickerView.dataSource = self;
     
@@ -56,8 +63,7 @@
 
 #pragma mark - Calculate BMR
 - (IBAction)calculatePressed:(UIButton *)sender {
-    
-    
+ 
     __block User *user = nil;
     
     [[RLMRealm defaultRealm] transactionWithBlock:^{
@@ -148,12 +154,19 @@
         
     }];
     
+    __block User *user = nil;
+        int weight = [self.weightTextField.text intValue];
+        int age = [self.ageTextField.text intValue];
+        user.age = age;
+        user.gender = self.genderTextField.text;
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
+        NSLog(@"%@", selectedLevel);
     self.userArray = [User allObjects];
-    
+ 
 }
 
 #pragma mark - TextField Delegates
-
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
 }
 
