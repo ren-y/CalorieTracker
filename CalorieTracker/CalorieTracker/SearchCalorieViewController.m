@@ -23,8 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"lemon.jpg"]]];
-    self.searchBar.delegate=self;
+    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]]];
+        self.searchBar.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.totalItems=[[NSMutableArray alloc]init];

@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *dinnerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *calConsumedTexfield;
 @property (weak, nonatomic) IBOutlet UILabel *totalCalorieLabel;
-@property (strong,nonatomic) NSString *label;
 @property (weak, nonatomic) IBOutlet UILabel *calorieBurntLabel;
 @property int calorieConsumed;
 @property int calorieBurnt;
@@ -31,6 +30,25 @@
 //-(void)mealButtonPressed{
 // 
 //}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm transactionWithBlock:^{
+        User *firstUser = [[User allObjects] firstObject];
+        [self setCalorieLabel:firstUser];
+    }];
+    
+    // fetch new user
+    // update labels
+    
+//    [self initializeHealthStoreWithAuthorization];
+    
+}
 
 - (IBAction)brkFastButtonPressed:(id)sender {
       self.meal.type=@"breakfast";
@@ -48,9 +66,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     //[self initializeHealthStoreWithAuthorization];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]];
     self.meal=[[Meal alloc]init];
-    self.totalCalorieLabel.text=self.label;
     self.calorieBurnt=1250;
    
     
@@ -118,12 +135,15 @@
     
     NSString *myString =[NSString stringWithFormat:@"%d",user.calorie];
     NSLog(@"In label home::%@",myString);
-       self.label=[NSString stringWithFormat:@"  Your Target Calorie  %@",myString];
+    self.totalCalorieLabel.text = [NSString stringWithFormat:@"  Your Target Calorie  %@",myString];
 }
 //
 
 -(void)updateCalender{
 //netResultLabel.text=targetCalories-COnsumedCal
+}
+- (IBAction)getHealthKitData:(id)sender {
+    [self initializeHealthStoreWithAuthorization];
 }
 - (void)initializeHealthStoreWithAuthorization {
     
@@ -144,19 +164,21 @@
             } else {
                 
                 NSLog(@"Success is %d", success);
+                
+                
             }
         }];
     }
 }
 
 - (NSSet *)dataTypesToRead {
-    
-        HKCharacteristicType * workoutType = [HKObjectType characteristicTypeForIdentifier:HKWorkoutTypeIdentifier];
+
+    HKWorkoutType * workoutType = [HKObjectType workoutType];
     return [NSSet setWithObjects:workoutType, nil];
 }
 
 - (NSSet *)dataTypesToWrite {
-    HKCharacteristicType * workoutType = [HKObjectType characteristicTypeForIdentifier:HKWorkoutTypeIdentifier];
+    HKWorkoutType * workoutType = [HKObjectType workoutType];
     return [NSSet setWithObjects:workoutType, nil];
 }
 @end

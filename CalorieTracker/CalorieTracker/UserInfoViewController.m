@@ -22,12 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]];
     NSLog(@"config is %@", [[RLMRealm defaultRealm] configuration]);
     self.userArray = [User allObjects];
     
     pickerExerciseLevel = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
-
+    
     self.levelPickerView.delegate = self;
     self.levelPickerView.dataSource = self;
     
@@ -51,74 +51,100 @@
 
 //-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 //    NSString *level = [pickerExerciseLevel objectAtIndex:row];
-//    
+//
 //}
 
 #pragma mark - Calculate BMR
 - (IBAction)calculatePressed:(UIButton *)sender {
     
-    User *user = [[User alloc] init];
-    user.name = self.nameTextField.text;
     
-    int height = [self.heightTextField.text intValue];
-    user.height = height;
-
-    int weight = [self.weightTextField.text intValue];
-    user.weight = weight;
+    __block User *user = nil;
     
-    int age = [self.ageTextField.text intValue];
-    user.age = age;
-    
-    user.gender = self.genderTextField.text;
-    
-    NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
-    NSLog(@"%@", selectedLevel);
-    
-    user.exerciseLevel = selectedLevel;
-    double multiplier = 0;
-    
-    if ([selectedLevel isEqualToString:@"Sedentary"]) {
-        multiplier = 1.2;
-        
-    } else if ([selectedLevel isEqualToString:@"Lightly active"]) {
-        multiplier = 1.375;
-        
-    } else if ([selectedLevel isEqualToString:@"Moderately active"]) {
-        multiplier = 1.55;
-        
-    } else if ([selectedLevel isEqualToString:@"Very active"]) {
-        multiplier = 1.725;
-        
-    } else {
-        multiplier = 1.9;
-    }
-    NSLog(@"multiplier--%.3f", multiplier);
-    
-    int preBMR = (10 * weight) + 6.25 * height - (5 * age);
-    
-    if ([user.gender isEqual:@"m"]||[user.gender isEqual:@"M"]) {
-        
-        int BMR = (preBMR + 5) * multiplier;
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
-        user.calorie=BMR;
-        NSLog(@"BMR---%d", BMR);
-        
-    // if women
-    } else if ([user.gender isEqual:@"f"]||[user.gender isEqual:@"F"]) {
-        
-        int BMR = (preBMR - 161) * multiplier;
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
-        user.calorie=BMR;
-        NSLog(@"BMR---%d", BMR);
-
-    } else {
-        NSLog(@"Nothing Happen");
-    }
-//    RLMRealm *realm = [RLMRealm defaultRealm];
     [[RLMRealm defaultRealm] transactionWithBlock:^{
-        [[RLMRealm defaultRealm] addObject:user];
-//        self.user=[[User alloc]init];
-       self.user=user;
+        user = [[User allObjects] firstObject];
+        
+    }];
+
+    
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        
+        if (!user) {
+            user = [[User alloc] init];
+            [[RLMRealm defaultRealm] addObject:user];
+        }
+        
+        user.name = self.nameTextField.text;
+        
+        int height = [self.heightTextField.text intValue];
+        user.height = height;
+        
+        int weight = [self.weightTextField.text intValue];
+        user.weight = weight;
+        
+        int age = [self.ageTextField.text intValue];
+        user.age = age;
+        
+        user.gender = self.genderTextField.text;
+        
+        NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
+        NSLog(@"%@", selectedLevel);
+        
+        user.exerciseLevel = selectedLevel;
+        double multiplier = 0;
+        
+        if ([selectedLevel isEqualToString:@"Sedentary"]) {
+            multiplier = 1.2;
+            
+        } else if ([selectedLevel isEqualToString:@"Lightly active"]) {
+            multiplier = 1.375;
+            
+        } else if ([selectedLevel isEqualToString:@"Moderately active"]) {
+            multiplier = 1.55;
+            
+        } else if ([selectedLevel isEqualToString:@"Very active"]) {
+            multiplier = 1.725;
+            
+        } else {
+            multiplier = 1.9;
+        }
+        NSLog(@"multiplier--%.3f", multiplier);
+        
+        int preBMR = (10 * weight) + 6.25 * height - (5 * age);
+        
+        if ([user.gender isEqual:@"m"]||[user.gender isEqual:@"M"]) {
+            
+            int BMR = (preBMR + 5) * multiplier;
+            self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+            user.calorie=BMR;
+            NSLog(@"BMR---%d", BMR);
+            
+            // if women
+        } else if ([user.gender isEqual:@"f"]||[user.gender isEqual:@"F"]) {
+            
+            int BMR = (preBMR - 161) * multiplier;
+            self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+            user.calorie=BMR;
+            NSLog(@"BMR---%d", BMR);
+            
+        } else {
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                                message:@"InValid Input"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Dismiss"
+                                                                  style:UIAlertActionStyleDestructive
+                                                                handler:^(UIAlertAction *action) {
+                                                                    NSLog(@"Dismiss button tapped!");
+                                                                }];
+            [controller addAction:alertAction];
+            [self presentViewController:controller animated:YES completion:nil];
+            
+        }
+        //    RLMRealm *realm = [RLMRealm defaultRealm];
+        
+//        [[RLMRealm defaultRealm] addOrUpdateObject:user];
+        //        [[RLMRealm defaultRealm] addObject:user];
+        //        self.user=[[User alloc]init];
+        self.user = user;
         
     }];
     
@@ -146,9 +172,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"segueToCalorieTracker"]){
-        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
-
-        HomeViewController *homeViewController=(HomeViewController*)[navController.viewControllers firstObject];
+        //        UINavigationController *navController=(UINavigationController*)segue.destinationViewController;
+        
+        HomeViewController *homeViewController=(HomeViewController*)segue.destinationViewController;
         [homeViewController setCalorieLabel:self.user];
     }
 }
