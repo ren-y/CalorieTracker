@@ -8,6 +8,8 @@
 
 #import "UserInfoViewController.h"
 #import "HomeViewController.h"
+#import "NSDate+DateAddition.h"
+
 //#import "CalorieHistoryViewController.h"
 
 @interface UserInfoViewController () {
@@ -58,7 +60,14 @@
 - (IBAction)calculatePressed:(UIButton *)sender {
     
     User *user = [[User alloc] init];
+    
     user.name = self.nameTextField.text;
+    
+    
+//    NSDate *date = [NSDate today];
+//    NSLog(@"user.daysArray--%@, date--%@", user.daysArray, (Day*)date);
+//    NSString *str = [NSString stringWithFormat:@"%@", (Day*)date];
+//    [user.daysArray addObject:(Day*)str];
     
     int height = [self.heightTextField.text intValue];
     user.height = height;
@@ -72,7 +81,7 @@
     user.gender = self.genderTextField.text;
     
     NSString *selectedLevel = [pickerExerciseLevel objectAtIndex:[self.levelPickerView selectedRowInComponent:0]];
-    NSLog(@"%@", selectedLevel);
+//    NSLog(@"%@", selectedLevel);
     
     user.exerciseLevel = selectedLevel;
     double multiplier = 0;
@@ -92,26 +101,26 @@
     } else {
         multiplier = 1.9;
     }
-    NSLog(@"multiplier--%.3f", multiplier);
+//    NSLog(@"multiplier--%.3f", multiplier);
     
     double preBMR = (10 * weight) + 6.25 * height - (5 * age);
     
     if ([user.gender isEqual:@"m"]) {
         
-        double BMR = (preBMR + 5) * multiplier;
-        user.targetCals = [NSString stringWithFormat:@"%.2f", BMR];
+        int BMR = (preBMR + 5) * multiplier;
+        user.calorie = BMR ;
 
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
-        NSLog(@"BMR---%.2f", BMR);
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        NSLog(@"BMR---%d", BMR);
         
     // if women
     } else if ([user.gender isEqual:@"f"]) {
         
-        double BMR = (preBMR - 161) * multiplier;
-        user.targetCals = [NSString stringWithFormat:@"%.2f", BMR];
+        int BMR = (preBMR - 161) * multiplier;
+        user.calorie = BMR;
         
-        self.resultBMILabel.text = [NSString stringWithFormat:@"%.2f", BMR];
-        NSLog(@"BMR---%.2f", BMR);
+        self.resultBMILabel.text = [NSString stringWithFormat:@"%d", BMR];
+        NSLog(@"BMR---%d", BMR);
 
     } else {
         NSLog(@"Nothing Happen");
@@ -119,6 +128,7 @@
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
+        
         [realm addObject:user];
     }];
     

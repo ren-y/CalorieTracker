@@ -10,4 +10,8 @@
 
 @implementation Day
 
+//+(NSString *)primaryKey {
+//    return @"userDate";
+//}
+
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Realm/Realm.h>
+#import "Day.h"
 
 @interface ViewController : UIViewController
 
+@property (nonatomic) Day *day;
 
 @end
 

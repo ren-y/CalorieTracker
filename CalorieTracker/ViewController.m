@@ -7,17 +7,19 @@
 //
 
 #import "ViewController.h"
-
 #import "Calendar.h"
 #import "CalendarView.h"
 #import "SingleSelectionCell.h"
 #import "SingleSelectionHeaderView.h"
 #import "UINavigationBar+Addition.h"
 
+
 @interface ViewController () <CalendarDataSource, CalendarDelegate>
 
 @property (nonatomic, strong) CalendarView *calendarView;
 @property (nonatomic, strong) NSDate *selectedDate;
+
+@property (nonatomic) RLMResults<Day *> *daysArray;
 
 @end
 
@@ -53,6 +55,12 @@
     [self.view addSubview:self.calendarView];
     
     self.selectedDate = firstDate;
+    
+    // if date has UserData, show indicator below the date
+    self.daysArray = [Day allObjects];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,7 +102,9 @@
     
     [calendarView reloadItemsAtDates:[NSMutableSet setWithObjects:oldDate, self.selectedDate, nil]];
     //    if (date) {
-    NSLog(@"selected date is : %@", self.selectedDate);
+    NSLog(@"Selected date is : %@", self.selectedDate);
+
+    
     //        cell.cellState = ZBJCalendarCellStateSelected;
     //    }
     

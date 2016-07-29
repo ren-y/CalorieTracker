@@ -13,9 +13,12 @@
 
 //@property (nonatomic) NSString *day;
 @property (nonatomic) NSDate *date;
-@property (nonatomic) NSNumber<RLMInt> *targetCals;
-//@property (nonatomic) RLMArray<Food> *foodsArray;
+@property (assign) int targetCals;
 
+@property (nonatomic) NSString *indicator;
+
+//@property (nonatomic) RLMArray<Food> *foodsArray;
+//@property NSInteger userDate;
 
 @end
 RLM_ARRAY_TYPE(Day)

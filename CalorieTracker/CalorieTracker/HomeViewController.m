@@ -7,8 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "User.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic) RLMResults *usersArray;
 
 @end
 
@@ -16,7 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.usersArray = [User allObjects];
+    if ([self.usersArray count] > 0) {
+        
+        // go to UserInfoVC
+    } else {
+       // Stay HomeVC
+    }
 }
 
 - (void)didReceiveMemoryWarning {

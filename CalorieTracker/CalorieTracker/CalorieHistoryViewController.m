@@ -40,6 +40,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.dayArray = [Day allObjects];
+    
     NSDate *today = [NSDate today];
     NSCalendar *calendar = [NSDate gregorianCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
@@ -89,12 +91,12 @@
     }
 }
 
+
 #pragma mark - ZBJCalendarDelegate
 - (void)calendarView:(CalendarView *)calendarView didSelectDate:(NSDate *)date ofCell:(SingleSelectionCell *)cell {
     
     NSDate *oldDate = [self.selectedDate copy];
     self.selectedDate = date;
-    
     [calendarView reloadItemsAtDates:[NSMutableSet setWithObjects:oldDate, self.selectedDate, nil]];
     //    if (date) {
     NSLog(@"Selected date is : %@", self.selectedDate);
@@ -105,7 +107,7 @@
     
     
     
-    self.dayArray = [Day allObjects];
+//    self.dayArray = [Day allObjects];
 
 //    day.date = self.selectedDate;
     
