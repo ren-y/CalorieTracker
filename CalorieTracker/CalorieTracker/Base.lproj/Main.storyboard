@@ -161,7 +161,7 @@
                                     <constraint firstAttribute="width" constant="265" id="sxC-YP-XNK"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIZ-Tw-agl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIZ-Tw-agl">
                                 <rect key="frame" x="91" y="444" width="138" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1EJ-t4-TBM"/>
@@ -240,7 +240,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-WC-vfG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-WC-vfG">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -261,7 +261,7 @@
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="leading" secondItem="MX3-oK-V5t" secondAttribute="leading" id="ChC-bh-NWP"/>
                             <constraint firstItem="MX3-oK-V5t" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="eCx-Eq-qbo"/>
                             <constraint firstItem="MX3-oK-V5t" firstAttribute="top" secondItem="TN0-be-RPO" secondAttribute="top" id="oUd-MZ-ufn"/>
-                            <constraint firstItem="hgD-WC-vfG" firstAttribute="bottom" secondItem="7JD-FP-mPY" secondAttribute="top" id="u9E-R3-DHI"/>
+                            <constraint firstItem="hgD-WC-vfG" firstAttribute="bottom" secondItem="7JD-FP-mPY" secondAttribute="top" constant="49" id="u9E-R3-DHI"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="trailing" secondItem="MX3-oK-V5t" secondAttribute="trailing" id="xzw-cc-xsi"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="top" secondItem="MX3-oK-V5t" secondAttribute="bottom" id="yeh-xv-g2g"/>
                         </constraints>
@@ -496,7 +496,7 @@
                         <keyCommand/>
                     </keyCommands>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="indexPath">
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>

@@ -121,6 +121,8 @@
 }
 //
 
-
+-(void)updateCalender{
 //netResultLabel.text=targetCalories-COnsumedCal
+}
+
 @end

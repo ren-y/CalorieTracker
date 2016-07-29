@@ -30,27 +30,28 @@
     return instance;
 }
 
-//- (void)requestAuthorization {
-//    
-//    if ([HKHealthStore isHealthDataAvailable] == NO) {
-//        // If our device doesn't support HealthKit -> return.
-//        return;
-//    }
-//    
-//    NSArray *readTypes = @[[HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth]];
-//    
+- (void)requestAuthorization {
+    
+    if ([HKHealthStore isHealthDataAvailable] == NO) {
+        // If our device doesn't support HealthKit -> return.
+        return;
+    }
+    
+    NSArray *readTypes = @[[HKObjectType quantityTypeForIdentifier:HKWorkoutSortIdentifierTotalEnergyBurned]];
+    
+    //    NSArray *readTypes = @[[HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth]];
+//    @property (readonly, strong, nullable) HKQuantity *totalEnergyBurned;
 //    NSArray *writeTypes = @[[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass]];
-//    
-//    [self.healthStore requestAuthorizationToShareTypes:[NSSet setWithArray:readTypes]
-//                                             readTypes:[NSSet setWithArray:writeTypes] completion:nil];
-//    
-//    
-//    //
-//    
-//    
-//    
-//   
-//
+    
+  //  [self.healthStore requestAuthorizationToShareTypes:[NSSet setWithArray:readTypes] completion:nil];
+    
+    
+}
+
+    
+    
+   
+
 //- (void)splitTotalEnergy:(HKQuantity *)totalEnergy
 //               startDate:(NSDate *)startDate
 //                 endDate:(NSDate *)endDate
@@ -58,11 +59,11 @@
 //    
 //    self.homeVC.calorieBurnt=   
 //}
-//
-//
-//- (NSNumber*)readCalorieBurnt {
-//    
-//    
+
+
+- (int)readCalorieBurnt{
+    
+    
 //    NSError *error;
 //    
 //    HKQuantity *energyBurned =
@@ -76,7 +77,7 @@
 //        NSLog(@"Either an error occured fetching the user's age information or none has been stored yet. In your app, try to handle this gracefully.");
 //    }
 //    
-//return calorieBurnt;
-//}
+    return 1;
+}
 
 @end

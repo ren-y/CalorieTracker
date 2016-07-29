@@ -14,7 +14,7 @@
 
 - (void)requestAuthorization;
 
-- (NSNumber*)readCalorieBurnt;
-- (void)writeWeightSample:(CGFloat)weight;
+- (int)readCalorieBurnt;
+
 
 @end
