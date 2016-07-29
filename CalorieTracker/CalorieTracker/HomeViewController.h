@@ -13,7 +13,9 @@
 #import "SearchCalorieViewController.h"
 
 @interface HomeViewController : UIViewController<myDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *netResultLabel;
 
+//@property (assign)int calorieBurnt;
 -(void)passItem:(Food *)food;
 -(void)setCalorieLabel:(User*)user;
 @end

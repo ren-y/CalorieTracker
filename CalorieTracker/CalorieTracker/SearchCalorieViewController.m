@@ -28,7 +28,6 @@
     self.tableView.delegate=self;
     self.totalItems=[[NSMutableArray alloc]init];
     //self.foodArray=[[NSMutableArray alloc]init];
- 
     NSString *urlString =@"http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=bkO3pFhNPS6QBIvfZkkRj4XUH1ILOQe8o5RukW0v&nutrients=205&nutrients=204&nutrients=208&nutrients=269";
     
     //Get a session Connection
@@ -160,6 +159,5 @@
     }
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 
 @end

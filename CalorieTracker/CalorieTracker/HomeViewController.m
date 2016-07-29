@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *calConsumedTexfield;
 @property (weak, nonatomic) IBOutlet UILabel *totalCalorieLabel;
 @property (strong,nonatomic) NSString *label;
-
+@property (weak, nonatomic) IBOutlet UILabel *calorieBurntLabel;
+@property int calorieConsumed;
+@property int calorieBurnt;
 
 @property (strong,nonatomic)Meal *meal;
 
@@ -48,7 +50,9 @@
     [super viewDidLoad];
     self.meal=[[Meal alloc]init];
     self.totalCalorieLabel.text=self.label;
-                                 
+    self.calorieBurnt=1250;
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,41 +83,44 @@
     
    if ([self.meal.type isEqualToString:@"breakfast"]) {
         self.breakfastTextfield.text=[food.calorie stringByAppendingString:food.unit];
+       [self updateCaloriesConsumedWithFood:food];
+
    }
     else if ([self.meal.type isEqualToString:@"lunch"]) {
         self.lunchTextfield.text=[food.calorie stringByAppendingString:food.unit];
+        [self updateCaloriesConsumedWithFood:food];
+
     }
     else if([self.meal.type isEqualToString:@"snack"]) {
         self.snacksTextField.text=[food.calorie stringByAppendingString:food.unit];
+        [self updateCaloriesConsumedWithFood:food];
+
     }
     
     else if([self.meal.type isEqualToString:@"dinner"]) {
         self.dinnerTextField.text=[food.calorie stringByAppendingString:food.unit];
+        [self updateCaloriesConsumedWithFood:food];
+        
+        //hard coading Pedometer value
+        self.calorieBurntLabel.text=[NSString stringWithFormat:@"Calories Burnt   %d",self.calorieBurnt];
+
     }
 }
+
+-(void)updateCaloriesConsumedWithFood:(Food *)food {
+    self.calorieConsumed+=[food.calorie intValue];
+    self.calConsumedTexfield.text=[NSString stringWithFormat:@"%i", self.calorieConsumed];
+}
+
+//From UserVC to Home ==>segue
 -(void)setCalorieLabel:(User*)user{
     
     NSString *myString =[NSString stringWithFormat:@"%d",user.calorie];
     NSLog(@"In label home::%@",myString);
-   // [self createTemporaryLabelWithString:myString];
-    
-    //self.label=myString;
-    self.label=[NSString stringWithFormat:@"Your Daily Target Calorie is  %@",myString];
-//   NSString *label = self.totalCalorieLabel.text;
-//    self.totalCalorieLabel.text=[label stringByAppendingString:myString];
-//    self.totalCalorieLabel.backgroundColor=[UIColor yellowColor];
-    //[self.view addSubview:_totalCalorieLabel];
-    //[self.view bringSubviewToFront:_totalCalorieLabel];
-    
+       self.label=[NSString stringWithFormat:@"  Your Target Calorie  %@",myString];
 }
+//
 
-//-(void)createTemporaryLabelWithString:(NSString *)string
-//{
-//    //    CGRect frame = CGRectMake(10, 10, 200, 40);
-////    UILabel *tempLabel = [[UILabel alloc] initWithFrame:frame];
-////    tempLabel.text = string;
-////    tempLabel.backgroundColor = [UIColor orangeColor];
-////    [self.view addSubview:tempLabel];
-////    [self.view bringSubviewToFront:tempLabel];
-//}
+
+//netResultLabel.text=targetCalories-COnsumedCal
 @end

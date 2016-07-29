@@ -114,10 +114,10 @@
     } else {
         NSLog(@"Nothing Happen");
     }
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm transactionWithBlock:^{
-        [realm addObject:user];
-        self.user=[[User alloc]init];
+//    RLMRealm *realm = [RLMRealm defaultRealm];
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
+        [[RLMRealm defaultRealm] addObject:user];
+//        self.user=[[User alloc]init];
        self.user=user;
         
     }];
