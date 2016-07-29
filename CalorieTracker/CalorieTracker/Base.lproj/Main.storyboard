@@ -242,6 +242,9 @@
                             </searchBar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-Mf-hDG">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LP8-Xm-8EO"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-WC-vfG">
@@ -283,17 +286,22 @@
                             <constraint firstAttribute="bottom" secondItem="hgD-WC-vfG" secondAttribute="bottom" id="3Z7-GM-el1"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="leading" secondItem="MX3-oK-V5t" secondAttribute="leading" id="6z4-Xd-lcu"/>
                             <constraint firstAttribute="trailing" secondItem="MX3-oK-V5t" secondAttribute="trailing" id="79Q-vC-yI4"/>
+                            <constraint firstItem="hgD-WC-vfG" firstAttribute="top" secondItem="ORW-Mf-hDG" secondAttribute="bottom" id="7xm-b1-3uf"/>
                             <constraint firstAttribute="trailing" secondItem="hgD-WC-vfG" secondAttribute="trailing" id="8Hn-zo-Auu"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="trailing" secondItem="MX3-oK-V5t" secondAttribute="trailing" id="B8F-hk-N0A"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="top" secondItem="ORW-Mf-hDG" secondAttribute="bottom" id="Fr2-4X-Jq8"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="leading" secondItem="ORW-Mf-hDG" secondAttribute="leading" id="H2h-51-yPL"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="top" secondItem="ORW-Mf-hDG" secondAttribute="bottom" id="Le1-xQ-ZyY"/>
+                            <constraint firstAttribute="bottom" secondItem="hgD-WC-vfG" secondAttribute="bottom" id="LpQ-pM-WX0"/>
+                            <constraint firstItem="ORW-Mf-hDG" firstAttribute="top" secondItem="92f-1j-7h9" secondAttribute="bottom" id="MFt-gx-JDN"/>
                             <constraint firstAttribute="trailing" secondItem="ORW-Mf-hDG" secondAttribute="trailing" id="MzJ-Hn-Hji"/>
+                            <constraint firstAttribute="trailing" secondItem="hgD-WC-vfG" secondAttribute="trailing" id="N9O-cH-X3F"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="trailing" secondItem="ORW-Mf-hDG" secondAttribute="trailing" id="X3g-8K-0Yw"/>
                             <constraint firstItem="ORW-Mf-hDG" firstAttribute="top" secondItem="92f-1j-7h9" secondAttribute="bottom" id="XE0-wt-JdD"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="aV1-2p-FfV"/>
                             <constraint firstItem="MX3-oK-V5t" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="eCx-Eq-qbo"/>
                             <constraint firstAttribute="bottom" secondItem="hgD-WC-vfG" secondAttribute="bottom" id="hUH-5R-0sf"/>
+                            <constraint firstItem="hgD-WC-vfG" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="klq-z8-JQk"/>
                             <constraint firstItem="hgD-WC-vfG" firstAttribute="top" secondItem="ORW-Mf-hDG" secondAttribute="bottom" id="lq3-qo-nd1"/>
                             <constraint firstItem="MX3-oK-V5t" firstAttribute="top" secondItem="TN0-be-RPO" secondAttribute="top" id="oUd-MZ-ufn"/>
                             <constraint firstItem="ORW-Mf-hDG" firstAttribute="leading" secondItem="TN0-be-RPO" secondAttribute="leading" id="uoL-7o-cWd"/>
