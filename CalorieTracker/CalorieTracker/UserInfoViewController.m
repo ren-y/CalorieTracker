@@ -30,6 +30,10 @@
     self.userArray = [User allObjects];
     
     pickerExerciseLevel = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
+    
+    
+//    pickerDate = @[@"Sedentary", @"Lightly active", @"Moderately active", @"Very active", @"Extra active"];
+
 
     self.levelPickerView.delegate = self;
     self.levelPickerView.dataSource = self;

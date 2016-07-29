@@ -40,24 +40,49 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.dayArray = [Day allObjects];
+    self.dayArray = [[Day allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
     
-    NSDate *today = [NSDate today];
-    NSCalendar *calendar = [NSDate gregorianCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
+    if ([self.dayArray count] == 0) {
+        
+        for (int i = 1; i < 100; i++) {
+            
+            Day *day = [[Day alloc] init];
+            
+            
+            NSDate *date = [NSDate dateWithTimeIntervalSinceNow:-60*60*24*i];
+            
+            NSCalendar *calendar = [NSDate gregorianCalendar];
+                NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+            NSDate *firstDate = [calendar dateFromComponents:components];
+            
+            day.date = firstDate;
+            day.targetCals = arc4random_uniform(2000);
+            day.calorieBurnt = arc4random_uniform(2000);
+            day.calorieConsumed = arc4random_uniform(2000);
+            
+            [[RLMRealm defaultRealm] transactionWithBlock:^{
+                [[RLMRealm defaultRealm] addObject:day];
+            }];
+        }
+    }
     
-    NSDate *firstDate = [calendar dateFromComponents:components];
     
-    components.month = components.month + 6 + 1;
-    components.day = 0;
-    NSDate *lastDate = [calendar dateFromComponents:components];
+//    NSDate *today = [NSDate today];
+//    NSCalendar *calendar = [NSDate gregorianCalendar];
+//    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
+//    
+//    NSDate *firstDate = [calendar dateFromComponents:components];
+//    
+//    components.month = components.month + 6 + 1;
+//    components.day = 0;
+//    NSDate *lastDate = [calendar dateFromComponents:components];
     
-    self.calendarView.firstDate = firstDate;
-    self.calendarView.lastDate = lastDate;
+    self.calendarView.lastDate = [[self.dayArray firstObject] date];
+    self.calendarView.firstDate = [[self.dayArray lastObject] date];
     
     [self.view addSubview:self.calendarView];
     
-    self.selectedDate = firstDate;
+    self.selectedDate = [NSDate today];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,7 +93,15 @@
 #pragma mark - ZBJCalendarDataSource
 - (void)calendarView:(CalendarView *)calendarView configureCell:(SingleSelectionCell *)cell forDate:(NSDate *)date {
     
-    cell.date = date;
+    // get a day object for a given date
+    
+    RLMResults<Day *> *days = [self.dayArray objectsWithPredicate:[NSPredicate predicateWithFormat:@"date >= %@ AND date < %@", date, [date dateByAddingTimeInterval:60*60*24]]];
+    
+    Day *aDay = [days firstObject];
+//    if (aDay) {
+        [cell setDay:aDay];
+//    }
+    
     if (date) {
         if ([date isEqualToDate:self.selectedDate]) {
             cell.cellState = ZBJCalendarCellStateSelected;
@@ -78,6 +111,7 @@
     } else {
         cell.cellState = ZBJCalendarCellStateEmpty;
     }
+
 }
 
 - (void)calendarView:(CalendarView *)calendarView configureSectionHeaderView:(SingleSelectionHeaderView *)headerView firstDateOfMonth:(NSDate *)firstDateOfMonth {

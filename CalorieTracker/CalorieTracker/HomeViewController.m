@@ -56,6 +56,7 @@
    
     
     self.day = [[Day alloc] init];
+    
 //    self.user = [User allObjects];
     
 //    User *user = self.user;

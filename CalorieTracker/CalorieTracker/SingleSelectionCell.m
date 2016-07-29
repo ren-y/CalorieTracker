@@ -8,6 +8,7 @@
 
 #import "SingleSelectionCell.h"
 #import "NSDate+DateAddition.h"
+#import "Day.h"
 
 @interface SingleSelectionCell()
 
@@ -43,11 +44,16 @@
 }
 
 
-- (void)setDate:(NSDate *)date {
-    _date = date;
+- (void)setDay:(Day *)day andDate:(NSDate *)date {
+    _date = day.date;
     if (_date) {
         self.dateLabel.text = [NSString stringWithFormat:@"%ld", [self.calendar component:NSCalendarUnitDay fromDate:_date]];
-        self.indicator.text = @"+";
+        if ((day.targetCals - day.calorieConsumed) > 0) {
+                    self.indicator.text = @"+";
+        } else {
+            self.indicator.text = @"-";
+        }
+        
     } else {
         self.dateLabel.text = nil;
         self.indicator.text = nil;

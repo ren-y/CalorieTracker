@@ -97,6 +97,7 @@
 		07026C9F1D47F53900562C3B = {
 			isa = PBXGroup;
 			children = (
+				96E2B1281D4B423800F14D53 /* CalendarFiles */,
 				07026CAA1D47F53900562C3B /* CalorieTracker */,
 				07026CA91D47F53900562C3B /* Products */,
 				C886B9E41CF198A436DE4FE3 /* Pods */,
@@ -155,7 +156,6 @@
 			children = (
 				96C3A9291D4820090064BEDC /* User.h */,
 				96C3A92A1D4820090064BEDC /* User.m */,
-				96E2B1281D4B423800F14D53 /* CalendarFiles */,
 				96C3A92C1D4864550064BEDC /* Day.h */,
 				96C3A92D1D4864550064BEDC /* Day.m */,
 				07026D0C1D4999FA00562C3B /* Meal.h */,
@@ -215,6 +215,7 @@
 				96E2B12A1D4B42C000F14D53 /* NSDate+DateAddition.m */,
 			);
 			name = CalendarFiles;
+			path = CalorieTracker;
 			sourceTree = "<group>";
 		};
 		C886B9E41CF198A436DE4FE3 /* Pods */ = {

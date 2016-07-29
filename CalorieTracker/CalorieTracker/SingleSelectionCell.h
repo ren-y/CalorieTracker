@@ -14,9 +14,13 @@ typedef CF_ENUM(NSInteger, CalendarCellState) {
     ZBJCalendarCellStateSelected,
 };
 
+@class Day;
 
 @interface SingleSelectionCell : UICollectionViewCell
 
+
+- (void)setDay:(Day *)day;
+    
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, assign) CalendarCellState cellState;
 
