@@ -23,6 +23,10 @@
 
 @implementation UserInfoViewController
 
+- (IBAction)tapGesture:(id)sender {
+    [self.view endEditing:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screen5.jpg"]];

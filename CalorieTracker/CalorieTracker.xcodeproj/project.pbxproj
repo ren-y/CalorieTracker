@@ -261,7 +261,7 @@
 				TargetAttributes = {
 					07026CA71D47F53900562C3B = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 48L4E22UQC;
+						DevelopmentTeam = 6A3B9S8TK9;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -490,7 +490,7 @@
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.r.CalorieTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuka.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -507,7 +507,7 @@
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.r.CalorieTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuka.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

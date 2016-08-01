@@ -32,6 +32,9 @@
 @end
 
 @implementation HomeViewController
+- (IBAction)tapGesture:(id)sender {
+    [self.view endEditing:YES];
+}
 
 - (IBAction)savePressed:(UIButton *)sender {
 }
